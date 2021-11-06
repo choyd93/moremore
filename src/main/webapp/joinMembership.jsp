@@ -98,7 +98,7 @@
 <body>
     <div id="header">
       <!-- <img src="/images/Naver_Logotype.svg.png" width="200px" /> -->
-      <h1 class="loginLogo">more<br>more</h1>
+      <h1 class="loginLogo">more&nbsp<br> more!</h1>
     </div>
     <form>
       <div id="joinContainerWrapper">
@@ -106,61 +106,55 @@
           <div class="row_group">
             <div>
               <h3><label class="join" for="id">아이디</label></h3>
-              <span class="ps_box">
+              	<span class="ps_box">
                 <input
+                  style="border:none;"
                   type="text"
                   id="id"
                   maxlength="20"
                   placeholder="아이디 입력" />
                   <span class="step_url">@more.com</span>
-                  </span
-              ><br />
+                </span>
               <span class="error"></span>
             </div>
             <div>
               <h3><label class="join" for="password">비밀번호</label></h3>
-
-              <span class="ps_box">
                 <input
+                  class="ps_box"
                   type="password"
                   id="password"
-                  placeholder="비밀번호(5~20자리)"
-              /></span>
+                  placeholder="비밀번호(5~20자리)"/>
               <span class="error"></span>
             </div>
             <div>
               <h3>
                 <label class="join" for="validatePassword"
-                  >비밀번호 재확인</label
-                >
+                  >비밀번호 재확인</label>
               </h3>
-              <span class="ps_box">
                 <input
+                  class="ps_box"
                   type="password"
                   id="validatePassword"
-                  placeholder="비밀번호 재입력"
-              /></span>
+                  placeholder="비밀번호 재입력"/>
               <span class="error"></span>
             </div>
           </div>
           <div>
             <h3><label class="join" for="name">이름</label></h3>
-            <span class="ps_box"
-              ><input type="text" id="name" placeholder="이름 입력"/></span>
+            <input class="ps_box" type="text" id="name" placeholder="이름 입력"/></span>
             <span class="error"></span>
           </div>
           <div class="join_birthday">
             <h3><label class="join" for="year">생년월일</label></h3>
             <div class="bir_wrap">
               <div class="bir_yy">
-                <span class="ps_box">
                   <input
+                    class="ps_box"
                     type="text"
                     placeholder="년(4자)"
                     id="year"
                     maxlength="4"
                   />
-                </span>
               </div>
                 <div class="bir_mm">
                   <span class="ps_box">
@@ -182,14 +176,13 @@
                   </span>
                 </div>
                 <div class="bir_dd">
-                  <span class="ps_box">
                     <input
+                      class="ps_box"
                       type="text"
                       placeholder="일"
                       id="date"
                       maxlength="2"
                     />
-                  </span>
                 </div>
               </div>
               <span class="error"></span>
@@ -208,14 +201,19 @@
               <span class="error"></span>
             </div>
             <div>
+            	<h3><label class="join">주소</label></h3>
+				<input class="d_btn" type="button" onclick="FindAddrDaumPostcode()" value="우편번호 찾기"><br>
+            	<input type="text" id="userPostcode" class="ps_box" placeholder="우편번호">
+				<input type="text" id="userAddress" class="ps_box" placeholder="주소">
+				<input type="text" id="userDetailAddress" class="ps_box"  placeholder="상세주소">
+            </div>
+            <div>
               <h3>
                 <label class="join" for="email">본인 확인 이메일(선택)</label>
               </h3>
-              <span class="ps_box">
-                <input type="email" placeholder="선택입력" id="email" />
-              </span>
+                <input class="ps_box" type="email" placeholder="선택입력" id="email" />
             </div>
-            <div id="mobDiv">
+            <!-- <div id="mobDiv">
               <h3><label for="phone">휴대전화</label></h3>
               <span class="ps_box">
                 <select class="sel" name="phone">
@@ -238,7 +236,7 @@
                 />
               </div>
               <span class="error"></span>
-            </div>
+            </div> -->
             <div class="btn_area">
               <button type="button" id="btnJoin" class="btn_type btn_primary">
                 <span>가입하기</span>
@@ -376,5 +374,43 @@
     // function checkValidatePhone() {}
 
     </script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+	function FindAddrDaumPostcode() {
+	    new daum.Postcode({
+	        oncomplete: function(data) {
+	            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+	
+	            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+	            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+	            var addr = ''; // 주소 변수
+	
+	            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+	            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+	                addr = data.roadAddress;
+	            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+	                addr = data.jibunAddress;
+	            }
+	
+	            // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+	            if(data.userSelectedType === 'R'){
+	                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+	                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+	                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+	                }
+	                // 건물명이 있고, 공동주택일 경우 추가한다.
+	                if(data.buildingName !== '' && data.apartment === 'Y'){
+	                }
+	            } 
+	            
+	            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+	            document.getElementById('userPostcode').value = data.zonecode;
+	            document.getElementById("userAddress").value = addr;
+	            // 커서를 상세주소 필드로 이동한다.
+	            document.getElementById("userDetailAddress").focus();
+	        }
+	    }).open();
+	}
+	</script>
   </body>
 </html>

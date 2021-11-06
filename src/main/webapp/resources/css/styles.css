@@ -8,7 +8,7 @@ html {
 body {
   font-family: "맑은고딕", "돋음", arial, sans-serif;
   font-size: 24px;
-  background: white;
+  background-color: #F5F6F7;
 }
 
 ul{
@@ -20,6 +20,62 @@ h4 {
   width:auto;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.floatRight{
+  float: right;
+  margin-top: 8px;
+}
+
+/* 미디어 쿼리  */
+
+@media (max-width: 1200px){
+.projectInfoBannerHome{
+	
+	}
+}
+
+
+@media all and (max-width: 1090px){
+.searchBar {
+  display: none;
+ }
+}
+
+@media (max-width:900px){
+.headerMenuHidden {
+  display: none;
+  }
+
+#headerMenuFunding {
+  margin-left: 20px;
+  }
+
+#headerMenuBuy {
+  margin-left: 20px;
+  }
+
+.projectItem {
+  margin-left: 0;
+  }
+
+#headerMenuGuide{
+  display: none;
+  }
+}
+
+@media (max-width: 630px){
+  #headerContainerId{
+  padding-left: 30px;
+  }
+  .projectItem{
+  display: none;
+  }
+} 
+
 /* header */
 
 .headerLogo{
@@ -30,8 +86,18 @@ h4 {
   color: #888888;
 }
 
-a {
-  text-decoration: none;
+.purple{
+  color: #551A8B;
+}
+
+.white{
+  color: white:
+}
+
+#headerSlide{
+  width: 1450px;
+  height: 380px;
+  background-color: #F9F8FD;
 }
 
 .header-wrapper{
@@ -42,6 +108,9 @@ a {
   border-color: #80c72d;
 }
 
+.lightPink{
+  border-color: #F9F8FD;
+}
 
 
 .header-wrapper .header-contaniner{
@@ -63,7 +132,7 @@ a {
   display:flex;
   font-weight: bold;
   margin-left : auto;
-  color : grey;
+  color : #551A8B;
 }
 
 .headerMenu {
@@ -79,7 +148,7 @@ a {
   padding-top: 10px;
 }
 
-.headerMenuItem:hover{
+.headerMenuItem a:hover{
   color: #888888;
 }
 
@@ -95,9 +164,13 @@ a {
 }
 
 #headerSlide{
+  position: relative;
   width:100%;
-  height:200px;
+  height:550px;
+  background-position: 50% 50%;
   background-color: #F0F1E2;
+  margin-top:0px;
+  min-width: 1550px;
 }
 
 header ul {
@@ -123,40 +196,41 @@ header ul {
   color: #888888;
 }
 
+
 /* 메인 컨테이너 */
 .containerWrapper{
 	
 }
 
 .container{
+  width: 1480px;
   margin: 0 auto;
-  padding: 0 80px;
-  max-width: 1440px;
+  padding: 0 40px;
 }
 
 .projectStatusBanner{
   background-color: #80c72d;
-  width: 100%;
+  max-width: 1480px;
   height:80px;
   padding: 10px;
   color: white;
-  margin-top: 40px;
+  margin-top: 120px;
 }
 
 
 .projectStartBanner{
   background-color: #d9d9d9;
-  width: 100%;
+  max-width: 1480px;
   height:150px;
   text-align: center;
   padding: 10px;
-  margin: 40px 0 40px 0;
+  margin: 120px auto 60px;
 }
 
 
 .containerHashTagMenu{
   display:flex;
-  padding-left: 330px;
+  padding-left: 540px;
 }
 
 .hashTagBtn{
@@ -170,14 +244,25 @@ header ul {
   text-align: center;
 }
 
-.projectThumbnail {
-  border: 1px solid black;
+.projectWrapper {
   width: 100%;
-  height: 200px;
+  height: 170px;
+  margin-bottom: 50px;
+}
+
+.projectContent p{
+  font-size: 18px;
+  margin: 0px;
+  width: 300px;
+}
+
+.projectContent span{
+  font-size: 16px;
 }
  
- .projectInfoBannerHome{
-  width:70%;
+.projectInfoBannerHome{
+  min-width: 715px;
+  max-width: 715px;
   height: 80px;
   background-color: #FFFFFF;
   box-shadow: 2px 2px 5px #999;
@@ -185,34 +270,77 @@ header ul {
   padding: 10px;
  }
  
- .projectInfoBannerMenuWrapper{
+.projectInfoBannerMenuWrapper{
 
-
- }
+}
  
- .projectInfoBannerMenu{
+.projectInfoBannerMenu{
    display: flex;
  }
  
- .projectInfoItemTop{
- 	margin-right: 130px;
-    font-size: 20px;
+.projectInfoItemTop{
+   margin-right: 130px;
+   font-size: 20px;
+   color: #254949;
  }
  
- .projectInfoItemBottom{
+.projectInfoItemBottom{
     margin-right: 90px;
     font-size: 16px;
  }
  
- .centerItemTop{
+.projectInfoItemBottom a{
+   color: #B4B8BC;
+ }
+ 
+.whiteGrey{
+   color: #D5D6D6;
+ }
+ 
+.centerItemTop{
    padding-left: 160px;
    margin: 12px auto 12px
  }
  
- .centerItemBottom{
+.centerItemBottom{
    padding-left: 130px;
-   margin: 12px auto 12px
+   margin: 12px auto 12px;
  }
+ 
+.projectCard{
+   display: flex;
+   padding-left: 0px;
+   margin-top: 0px;
+   justify-content: space-between;
+ }
+ 
+.projectContent{
+   width: 300px;
+ }
+ 
+.projectThumbnail{
+   width:300px;
+   height:170px;
+   margin-top: 0px;
+   border-radius: 6px;
+ }
+ 
+.projectCardItem{
+   width:300px;
+   height: 250px;
+   margin: 0 40px 0 40px;
+}
+
+  border: 1px solid #CF3C37;
+}
+
+.projectAchievementRate {
+  color: #00B1B2;
+}
+
+.greyColor{
+  color: #999DA3;
+}
 
 
 /* 로그인 페이지 css*/
@@ -267,7 +395,7 @@ label {
   height: 51px;
   border: solid 1px #dadada;
   padding: 10px 110px 10px 14px;
-  background: none transparent;
+  background: white;
   box-sizing: border-box;
 }
 
@@ -357,9 +485,43 @@ label {
   font-size: 15px;
 }
 
+/* 로그인, 회원가입 팝업 페이지 */
+.loginFormContainer{
+  margin: 0 auto;
+}
+
+/* 다음 주소 api */
+.d_form{
+  margin: 0.2em 0;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  box-shadow: inset 0.1em 0.1em 0.15em rgb(0 0 0 / 10%)
+}
+
+.d_btn {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 0.4em 0.15em;
+  border: 1px solid #ccc;
+  border-color: #dbdbdb #d2d2d2 #b2b2b2 #d2d2d3;
+  cursor: pointer;
+  color: #464646;
+  border-radius: 0.2em;
+  vertical-align: middle;
+  font-size: 16px;
+  line-height: 1.25em;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#f2f2f2));
+}
+
+.d_btn:hover {
+  color: #464646;
+  text-decoration: none;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#e5e5e5));
+}
+
 /* 회원가입 */
-.joinContainerWrapper{
-  
+.joinContainer h3{
+  margin: 10px 0 10px 0;
 }
 
 .joinContainer{
@@ -367,10 +529,6 @@ label {
   padding: 0 80px;
   max-width: 460px;
   min-width: 290px;
-}
-
-.joinContainer input{
-  border: 0 none;
 }
 
 #joinFooter{
@@ -498,6 +656,93 @@ input[type="radio"]:checked + label {
   height: 700px;
 }
 
+/*  관리자 페이지 레이아웃 */
+
+.adminContainerWrapper{
+  display: flex;
+}
+
+.adminContainerLeft{
+  width: 140px;
+  height: 1000px;
+  background-color: #7F7F7F;
+}
+
+.adminContainerRight{
+  margin: 0 auto;
+}
+
+.adminLocationArea{
+  height: 100px;
+  width: 100%;
+}
+
+
+.adminHeaderWrapper{
+  background-color: #CECECE
+}
+
+.adminHeaderColor{
+  border-color: #80c72d;
+}
+
+.adminHeaderWrapper .adminHeaderContaniner{
+  height: 60px;
+  display:flex;
+}  
+
+.adminHeaderContaniner{
+  margin: 0 auto;
+  padding: 0 40px;
+  max-width: 1440px;
+}
+
+.adminMenuItem a{
+  color: inherit;
+  color: white;
+}
+
+.adminMenuItem{
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+li.adminMenuItem a:hover {
+  color: #CECECE;
+}
+
+.adminContainerRightWrapper{
+  width: 100%;
+}
+
+.adminContainerRight{
+  margin: 0 auto;
+}
+
+.adminLocationArea{
+  height: 40px;
+  width: 100%;
+  padding: 20px 0 0 20px;
+  border-bottom: 1px solid #777777;
+  font-size: 18px;
+}
+
+.adminContainerContent{
+
+}
+
+.adminLeftMenu {
+  padding-left: 20px;
+}
+
+.adminHeaderTitle{
+  color: #551A8B;
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 /* footer */
 #footer {
   position: relative;
@@ -507,7 +752,7 @@ input[type="radio"]:checked + label {
 
 #footer .infoArea .footerMenuArea,
 .footerArea {
-  width: 1080px;
+  width: 1480px;
   margin: 0 auto;
   overflow: auto;
 }

@@ -5,34 +5,15 @@
 <head>
 	<title>moremore - 크라우드 펀딩</title>
 	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0" />
 	<link rel="shortcut icon" href="#">
    	<link rel="stylesheet" href="resources/css/styles.css" type="text/css" />
 </head>
 <body>
-	<header class="header-wrapper greenColor">
-		<div class="header-contaniner">
-			<h4 class="headerLogo">
-				<a href="#" class="headerLogo">
-				<span >more more</span>
-				</a>
-			</h4>
-			<div class="headerMenuArea">
-				<ul class="headerMenu">
-					<li class="headerMenuItem middleSize"><a href=#>펀딩하기</a></li>
-					<li class="headerMenuItem middleSize"><a href=#>구매하기</a></li>
-					<li class="headerMenuItem middleSize"><a href=#>이용가이드</a></li>
-					<button type="button" class="projectItem">프로젝트 신청</button>
-					<li class="headerMenuItem moreItem"><a href=#>더보기</a></li>
-				</ul>
-			</div>
-			<div class="headerUtil">
-				<input type="search" id="" placeholder="프로젝트 검색하기"/>
-				<button type="button" class="noneBtn" onclick="javascript:location.href='login.jsp'">로그인</button>
-				<button type="button" class="noneBtn" onclick="javascript:location.href='joinMembership.jsp'">회원가입</button>
-			</div>
-		</div>
-	</header>
-	<div id="headerSlide">
+	<%@include file="homeHeader.jsp" %>
+	<!-- <div class="lightPink" id="headerSlide"> -->
+		<img id="headerSlide" src="https://image.hago.kr/mall/display/mmon-templates/6/51/689/pc_image_1.jpg?ut=2021-11-05 18:08:53' }" style="background-image: url(&quot;https://image.hago.kr/mall/display/mmon-templates/6/51/689/pc_image_1.jpg?ut=2021-11-05 18:08:53">
+		<!-- <img id="headerSlide" src="https://cdn.wadiz.kr/ft/images/green001/2021/1029/20211029103938521_4215.png/wadiz/optimize"> -->
 	</div>
 	<div id="containerWrapper">
 		<div class="container">
@@ -52,13 +33,92 @@
 				</ul>
 				</div>
 			</div>
-			<h3>인기 프로젝트</h3>
-			<div class="projectThumbnail">
+			<div>
+				<h3>인기 프로젝트</h3>
+				<div class="projectWrapper">
+				<ul class="projectCard">
+					<li class="projectCardItem">
+						<img class="projectThumbnail" src="https://cdn.wadiz.kr/wwwwadiz/green001/2021/0827/20210827140222871_125371.jpg/wadiz/format/jpg/quality/80/optimize"></span>
+						<div class="projectContent">
+							<p>자연유래성분 97%, 하루1분투자,피부고민해결! 프랑스와즈 기능성 앰플</p>
+							<span class="projectAchievementRate">418% 달성</span>
+							<span class="greyColor">4,182,200원</span>
+							<span class="greyColor floatRight">17일 남음</span>
+						</div>
+					</li>
+					<li class="projectCardItem">
+						<img class="projectThumbnail" src="https://cdn.wadiz.kr/wwwwadiz/green001/2021/0726/20210726190305750_122835.png/wadiz/format/jpg/quality/80/optimize"></span>
+						<div class="projectContent">
+							<p>탄산수는 기본, 모든 음료에 탄산을 넣는 폴바셋X딜라이트 탄산수 제조기</p>
+							<span class="projectAchievementRate">342% 달성</span>
+							<span class="greyColor">10,673,700원</span>
+							<span class="greyColor floatRight">12일 남음</span>
+						</div>
+					</li>
+					<li class="projectCardItem">
+						<img class="projectThumbnail" src="https://cdn.wadiz.kr/wwwwadiz/green001/2021/1012/20211012095214421_130079.jpg/wadiz/format/jpg/quality/80/optimize"></span>
+						<div class="projectContent">
+							<p>[캠핑의 재해석] 황동, 크롬 LED 랜턴과 자바라 화로테이블</p>
+							<span class="projectAchievementRate">222% 달성</span>
+							<span class="greyColor">5,225,300원</span>
+							<span class="greyColor floatRight">15일 남음</span>
+						</div>
+					</li>
+					<li class="projectCardItem">
+						<img class="projectThumbnail" src="https://cdn.wadiz.kr/wwwwadiz/green001/2021/1012/20211012095214421_130079.jpg/wadiz/format/jpg/quality/80/optimize"></span>
+						<div class="projectContent">
+							<p>[캠핑의 재해석] 황동, 크롬 LED 랜턴과 자바라 화로테이블</p>
+							<span class="projectAchievementRate">222% 달성</span>
+							<span class="greyColor">5,225,300원</span>
+							<span class="greyColor floatRight">15일 남음</span>
+						</div>
+					</li>
+				</ul>
+				</div>
 			</div>
-			<h3>이 프로젝트 어때요?</h3>
-			<div class="projectThumbnail">
+			<div class="">
+				<h3 style="margin-top:120px;">이 프로젝트 어때요?</h3>
+				<div class="projectWrapper">
+				<ul class="projectCard">
+					<li class="projectCardItem">
+						<img class="projectThumbnail" src="https://cdn.wadiz.kr/wwwwadiz/green001/2021/0827/20210827140222871_125371.jpg/wadiz/format/jpg/quality/80/optimize"></span>
+						<div class="projectContent">
+							<p>자연유래성분 97%, 하루1분투자,피부고민해결! 프랑스와즈 기능성 앰플</p>
+							<span class="projectAchievementRate">418% 달성</span>
+							<span class="greyColor">4,182,200원</span>
+							<span class="greyColor floatRight">17일 남음</span>
+						</div>
+					</li>
+					<li class="projectCardItem">
+						<img class="projectThumbnail" src="https://cdn.wadiz.kr/wwwwadiz/green001/2021/0726/20210726190305750_122835.png/wadiz/format/jpg/quality/80/optimize"></span>
+						<div class="projectContent">
+							<p>탄산수는 기본, 모든 음료에 탄산을 넣는 폴바셋X딜라이트 탄산수 제조기</p>
+							<span class="projectAchievementRate">342% 달성</span>
+							<span class="greyColor">10,673,700원</span>
+							<span class="greyColor floatRight">12일 남음</span>
+						</div>
+					</li>
+					<li class="projectCardItem">
+						<img class="projectThumbnail" src="https://cdn.wadiz.kr/wwwwadiz/green001/2021/1012/20211012095214421_130079.jpg/wadiz/format/jpg/quality/80/optimize"></span>
+						<div class="projectContent">
+							<p>[캠핑의 재해석] 황동, 크롬 LED 랜턴과 자바라 화로테이블</p>
+							<span class="projectAchievementRate">222% 달성</span>
+							<span class="greyColor">5,225,300원</span>
+							<span class="greyColor floatRight">15일 남음</span>
+						</div>
+					</li>
+					<li class="projectCardItem">
+						<img class="projectThumbnail" src="https://cdn.wadiz.kr/wwwwadiz/green001/2021/1012/20211012095214421_130079.jpg/wadiz/format/jpg/quality/80/optimize"></span>
+						<div class="projectContent">
+							<p>[캠핑의 재해석] 황동, 크롬 LED 랜턴과 자바라 화로테이블</p>
+							<span class="projectAchievementRate">222% 달성</span>
+							<span class="greyColor">5,225,300원</span>
+							<span class="greyColor floatRight">15일 남음</span>
+						</div>
+					</li>
+				</ul>
+				</div>
 			</div>
-			<div class=""></div>
 			<div class="projectStatusBanner">
 				<p style="font-size: 15px;">오늘 이만큼 참여하셨어요!</p>
 			</div>
@@ -68,42 +128,54 @@
 					<li class="hashTagBtn"><a href="#">#반려동물</a></li>
 					<li class="hashTagBtn"><a href="#">#친환경</a></li>
 				</ul>
-				<div class="projectThumbnail">
-				</div>
 			</div>
+			<div class="projectWrapper">
+				<ul class="projectCard">
+					<li class="projectCardItem">
+						<img class="projectThumbnail" src="https://cdn.wadiz.kr/wwwwadiz/green001/2021/0827/20210827140222871_125371.jpg/wadiz/format/jpg/quality/80/optimize"></span>
+						<div class="projectContent">
+							<p>자연유래성분 97%, 하루1분투자,피부고민해결! 프랑스와즈 기능성 앰플</p>
+							<span class="projectAchievementRate">418% 달성</span>
+							<span class="greyColor">4,182,200원</span>
+							<span class="greyColor floatRight">17일 남음</span>
+						</div>
+					</li>
+					<li class="projectCardItem">
+						<img class="projectThumbnail" src="https://cdn.wadiz.kr/wwwwadiz/green001/2021/0726/20210726190305750_122835.png/wadiz/format/jpg/quality/80/optimize"></span>
+						<div class="projectContent">
+							<p>탄산수는 기본, 모든 음료에 탄산을 넣는 폴바셋X딜라이트 탄산수 제조기</p>
+							<span class="projectAchievementRate">342% 달성</span>
+							<span class="greyColor">10,673,700원</span>
+							<span class="greyColor floatRight">12일 남음</span>
+						</div>
+					</li>
+					<li class="projectCardItem">
+						<img class="projectThumbnail" src="https://cdn.wadiz.kr/wwwwadiz/green001/2021/1012/20211012095214421_130079.jpg/wadiz/format/jpg/quality/80/optimize"></span>
+						<div class="projectContent">
+							<p>[캠핑의 재해석] 황동, 크롬 LED 랜턴과 자바라 화로테이블</p>
+							<span class="projectAchievementRate">222% 달성</span>
+							<span class="greyColor">5,225,300원</span>
+							<span class="greyColor floatRight">15일 남음</span>
+						</div>
+					</li>
+					<li class="projectCardItem">
+						<img class="projectThumbnail" src="https://cdn.wadiz.kr/wwwwadiz/green001/2021/1012/20211012095214421_130079.jpg/wadiz/format/jpg/quality/80/optimize"></span>
+						<div class="projectContent">
+							<p>[캠핑의 재해석] 황동, 크롬 LED 랜턴과 자바라 화로테이블</p>
+							<span class="projectAchievementRate">222% 달성</span>
+							<span class="greyColor">5,225,300원</span>
+							<span class="greyColor floatRight">15일 남음</span>
+						</div>
+					</li>
+				</ul>
+				</div>
 			<div class="projectStartBanner">
 				<p>좋은 아이디어가 있으신가요?</p>
-				<h4>지금바로 프로젝트를 만들어서 참여해보세요!</h4> 
+				<h4>지금바로 펀딩 프로젝트를 만들어서 참여해보세요!</h4> 
+				<button class="blackBtn" type="button">바로 가기</button>
+			</div>
 			</div>
 		</div>
-		
-	</div>
-	<footer id="footer">
-      <div class="infoArea">
-        <div class="footerMenuArea">
-          <ul class="footerMenu">
-            <li>회사소개</li>
-            <li>이용약관</li>
-            <li>개인정보처리방침</li>
-          </ul>
-        </div>
-        <div class="footerArea">
-         <img src="./image/logo.png"  style="display:inline; width : 150px;" />
-          <div class="footerRight">
-            <ul class=footerList>
-              <li><h4>모아모아</h4></li> 
-              <li>대표이사 : 모아모아</li>
-              <li>
-                주소 (우) 010101 서울특별시 비트로 999-1 비트캠프
-              </li>
-              <li>
-                고객지원센터 : 1588-1111 
-              </li>
-              <li class="COPYRIGHT">COPYRIGHTⓒ moremore</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
+	<%@include file="homeFooter.jsp" %>
 </body>
 </html>

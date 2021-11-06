@@ -8,15 +8,26 @@
    	<link rel="stylesheet" href="resources/css/styles.css" type="text/css" />
 </head>
 <body>
-	<header class="adminHeaderWrapper">
-		<div class="header-contaniner">
-			<h4 class="headerLogo">
-				<a href="#" class="headerLogo">
-				<span >more more</span>
-				</a>
-			</h4>
-			<h8 style="color:#3498DA">펀딩 관리자 페이지</h8>
+	<%@include file="adminHeader.jsp" %>
+	<div class="adminContainerWrapper">
+		<div class="adminContainerLeft">
+			<ul class="adminLeftMenu">
+				<li class="adminMenuItem"><a href="#">메인</a></li>
+				<li class="adminMenuItem"><a href="#">펀딩 준비</a></li>
+				<li class="adminMenuItem"><a href="#">펀딩 관리</a></li>
+				<li class="adminMenuItem"><a href="#">결제 현황</a></li>
+				<li class="adminMenuItem"><a href="#">문의 관리</a></li>
+			</ul>
 		</div>
-	</header>
+		<div class="adminContainerRightWrapper">
+			<div class="adminContainerRight">
+				<div class="adminLocationArea">
+					<h8>메인</h8>
+				</div>
+				<div class="adminContainerContent">
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

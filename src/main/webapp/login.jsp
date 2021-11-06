@@ -49,9 +49,9 @@
           </div>      
             <div>
             	<div>
+            		<a href="findPassword.jsp" class="findLoginInfo" onclick="window.open(this.href,'_blank','width=300,height=400, scrollbars=yes');return false;">비밀번호찾기</a>
 	            	<a href="findId.jsp" class="findLoginInfo" onclick="window.open(this.href,'_blank','width=300,height=400, scrollbars=yes');return false;">아이디찾기</a>
-	            	<a href="findPassword.jsp" class="findLoginInfo" onclick="window.open(this.href,'_blank','width=300,height=400, scrollbars=yes');return false;">비밀번호찾기</a>
-	            	<a href="joinMemberShip.jsp" class="findLoginInfo">회원가입</a>
+	            	<a href="joinMembership.jsp" class="findLoginInfo">회원가입</a>
             	</div>
             </div>
           </div>
