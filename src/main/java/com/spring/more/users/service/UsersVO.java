@@ -1,4 +1,4 @@
-package com.spring.more.users;
+package com.spring.more.users.service;
 
 public class UsersVO {
 	private String user_no;

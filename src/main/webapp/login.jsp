@@ -9,9 +9,9 @@
 </head>
 <body style="position: relative; background: #f5f6f7;">
     <div id="loginHeader">
-      <a href="home.jsp"><h1 class="loginLogo">more<br/>more</h1></a>
+      <a href="home.jsp"><h1 class="loginLogo">more&nbsp<br> more!</h1></a>
     </div>
-    <form action="logIn" method="get" id="FormLogin" name="logInForm">
+    <form action="login.do" method="post" id="FormLogin" name="logInForm">
       <div id="loginContainer">
         <div id="loginContent">
           <div class="row_group">
@@ -22,12 +22,12 @@
                   class="logininput"
                   type="text"
                   id="mid"
-                  name="mid"
+                  name="user_id"
                   maxlength="20"
                   placeholder="아이디 입력"
                   value="" />
                   <span class="step_url">@###.com</span>
-                  </span><br />
+                  </span>
               <span class="error"></span>
             </div>
             <div>
@@ -37,7 +37,7 @@
                   class="logininput"
                   type="password"
                   id="mpw"
-                  name="mpw"
+                  name="user_pwd"
                   value=""
                   placeholder="비밀번호(5~20자리)"/></span>
               <span class="error"></span>

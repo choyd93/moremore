@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="users">
+
+	<select id="selectAllUsers" parameterType="users" resultType="users">
+		SELECT * FROM USERS ORDER BY USER_NO;
+	</select>
+	
+	<select id="selectOneUsers" parameterType="string" resultType="users">
+		SELECT * FROM USERS WHERE USER_ID = #{id}
+	</select>
+	
+	<select id="checkIdPassword" parameterType="map" resultType="users">
+		SELECT * FROM USERS WHERE USER_ID = #{user_id} AND USER_PWD = #{user_pwd}	
+	</select>
+	
+	<insert id="insertUsers" parameterType="users">
+		INSERT INTO USERS (USER_ID, USER_NAME, USER_PWD, USER_EMAIL)
+		VALUES (#{id}, #{name}, #{password}, #{email})
+	</insert>
+	
+	<update id="updateUsers" parameterType="users">
+		UPDATE USERS SET USER_PWD = #{id}, USER_EMAIL = #{email} 
+        WHERE USER_ID = #{id}
+	</update>
+	
+	<delete id="deleteUsers" parameterType="users">
+		DELETE USERS
+		WHERE USER_ID = #{id}
+	</delete>
+</mapper>

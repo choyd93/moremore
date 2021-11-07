@@ -92,15 +92,15 @@
 		
 		
 		form.submit();
-	}  -->
-</script>	 
+	}  
+</script>--> 
 </head>
 <body>
     <div id="header">
       <!-- <img src="/images/Naver_Logotype.svg.png" width="200px" /> -->
-      <h1 class="loginLogo">more&nbsp<br> more!</h1>
+      <h1 class="loginLogo"><span style="cursor:pointer;" onclick="javascript:location.href='home.jsp'">more&nbsp<br> more!</span></h1>
     </div>
-    <form>
+    <form action="signup.do" method="post">
       <div id="joinContainerWrapper">
         <div class="joinContainer">
           <div class="row_group">
@@ -113,7 +113,7 @@
                   id="id"
                   maxlength="20"
                   placeholder="아이디 입력" />
-                  <span class="step_url">@more.com</span>
+                  <span class="step_url">@###.com</span>
                 </span>
               <span class="error"></span>
             </div>
@@ -238,7 +238,7 @@
               <span class="error"></span>
             </div> -->
             <div class="btn_area">
-              <button type="button" id="btnJoin" class="btn_type btn_primary">
+              <button type="submit" id="btnJoin" class="btn_type btn_primary">
                 <span>가입하기</span>
               </button>
             </div>
