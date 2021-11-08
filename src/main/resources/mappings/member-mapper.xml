@@ -17,8 +17,8 @@
 	</select>
 	
 	<insert id="insertUsers" parameterType="users">
-		INSERT INTO USERS (USER_ID, USER_NAME, USER_PWD, USER_EMAIL)
-		VALUES (#{id}, #{name}, #{password}, #{email})
+		INSERT INTO USERS (USER_NO, USER_NAME, USER_ID, USER_PWD, USER_PHONE, USER_EMAIL, USER_GENDER, USER_JOINDATE, USER_TYPE)
+		VALUES ((SELECT NVL(MAX(USER_NO),0)+1 FROM USERS), #{user_name}, #{user_id}, #{user_pwd}, #{user_phone}, #{user_email}, #{user_gender}, sysdate, '회원')
 	</insert>
 	
 	<update id="updateUsers" parameterType="users">

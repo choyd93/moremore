@@ -15,20 +15,3 @@
     <mapper resource="mappings/member-mapper.xml"/>
   </mappers>
 </configuration>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

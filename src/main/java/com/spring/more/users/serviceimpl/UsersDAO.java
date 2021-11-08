@@ -26,10 +26,12 @@ public class UsersDAO {
 
 	public int insertUsers(UsersVO vo) {
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("id", vo.getUser_id());
-		map.put("password", vo.getUser_pwd());
-		map.put("name", vo.getUser_name());
-		map.put("email", vo.getUser_email());
+		map.put("user_name", vo.getUser_name());
+		map.put("user_id", vo.getUser_id());
+		map.put("user_pwd", vo.getUser_pwd());
+		map.put("user_phone", vo.getUser_phone());
+		map.put("user_email", vo.getUser_email());
+		map.put("user_gender", vo.getUser_gender());
 		System.out.println(map);
 		return mybatis.insert("users.insertUsers", vo);
 	}

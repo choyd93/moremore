@@ -111,6 +111,7 @@
                   style="border:none;"
                   type="text"
                   id="id"
+                  name="user_id"
                   maxlength="20"
                   placeholder="아이디 입력" />
                   <span class="step_url">@###.com</span>
@@ -135,16 +136,27 @@
                   class="ps_box"
                   type="password"
                   id="validatePassword"
+                  name="user_pwd"
                   placeholder="비밀번호 재입력"/>
               <span class="error"></span>
             </div>
           </div>
           <div>
             <h3><label class="join" for="name">이름</label></h3>
-            <input class="ps_box" type="text" id="name" placeholder="이름 입력"/></span>
+            <input class="ps_box" type="text" id="name" name="user_name" placeholder="이름 입력"/>
             <span class="error"></span>
           </div>
-          <div class="join_birthday">
+          <div>
+            <h3><label class="join" for="birthday">생년월일</label></h3>
+            <input class="ps_box" type="text" id="birthday"  name="user_birthday" placeholder="생년월일 입력"/>
+            <span class="error"></span>
+          </div>
+          <div>
+            <h3><label class="join" for="birthday">휴대폰 번호</label></h3>
+            <input class="ps_box" type="text" id="user_phone"  name="user_phone" placeholder="휴대폰 번호 입력"/>
+            <span class="error"></span>
+          </div>
+          <!-- <div class="join_birthday">
             <h3><label class="join" for="year">생년월일</label></h3>
             <div class="bir_wrap">
               <div class="bir_yy">
@@ -153,6 +165,7 @@
                     type="text"
                     placeholder="년(4자)"
                     id="year"
+                    name="user_name"
                     maxlength="4"
                   />
               </div>
@@ -186,12 +199,12 @@
                 </div>
               </div>
               <span class="error"></span>
-            </div>
+            </div> -->
 
             <div>
               <h3><label class="join sel" for="gender">성별</label></h3>
               <span class="ps_box">
-                <select id="gender">
+                <select id="gender" name="user_gender">
                   <option selected value="noneGender">성별</option>
                   <option value="man">남</option>
                   <option value="woman">여</option>
@@ -203,15 +216,15 @@
             <div>
             	<h3><label class="join">주소</label></h3>
 				<input class="d_btn" type="button" onclick="FindAddrDaumPostcode()" value="우편번호 찾기"><br>
-            	<input type="text" id="userPostcode" class="ps_box" placeholder="우편번호">
-				<input type="text" id="userAddress" class="ps_box" placeholder="주소">
+            	<input type="text" id="userPostcode" name="user_address" class="ps_box" placeholder="우편번호">
+				<input type="text" id="userAddress" name="user_address_number" class="ps_box" placeholder="주소">
 				<input type="text" id="userDetailAddress" class="ps_box"  placeholder="상세주소">
             </div>
             <div>
               <h3>
-                <label class="join" for="email">본인 확인 이메일(선택)</label>
+                <label class="join" for="email">본인 확인 이메일</label>
               </h3>
-                <input class="ps_box" type="email" placeholder="선택입력" id="email" />
+                <input class="ps_box" type="email" placeholder="선택입력" id="email" name="user_email" />
             </div>
             <!-- <div id="mobDiv">
               <h3><label for="phone">휴대전화</label></h3>
@@ -375,7 +388,7 @@
 
     </script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
+	<script>
 	function FindAddrDaumPostcode() {
 	    new daum.Postcode({
 	        oncomplete: function(data) {

@@ -25,7 +25,7 @@ public class UsersController {
 	@RequestMapping(value = "/signup.do", method = RequestMethod.POST)
 	public String signup(UsersVO vo, Model model) {
 		usersService.insertUsers(vo);
-		model.addAttribute("signupUsers", vo);
+		model.addAttribute("loginUsers", vo);
 		return "signupSuccess.jsp";
 		//return "login.jsp";
 	}
@@ -56,7 +56,7 @@ public class UsersController {
 		status.setComplete();
 		session.invalidate();
         
-        return "home.jsp";        
+        return "login.jsp";        
     }
 
 }

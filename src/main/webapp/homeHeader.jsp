@@ -6,9 +6,8 @@
 	<header class="header-wrapper greenColor">
 		<div class="header-contaniner" id="headerContainerId">
 			<h4 class="headerLogo">
-				<a href="#" class="headerLogo purple">
+				<a href="home.jsp" class="headerLogo purple">
 				<span >more more!</span>
-							
 				</a>
 			</h4>
 			<div class="headerMenuArea">
@@ -19,7 +18,7 @@
 					<li class="headerMenuItem moreItem" id="headerMenuMoreItem"><a href=# class="headerMenuHidden">더보기</a></li>
 					<li class="headerMenuItem middleSize" id="headerMenuProjectBtnList"><a href=# id="headerMenuProjectBtn" class="purple">프로젝트 신청</a></li>
 				</ul>
-			</div>
+			</di v>
 			<div class="headerUtil">
 				<input type="search" class="searchBar" placeholder="프로젝트 검색하기"/>
 				<!-- 비로그인 시 출력 -->

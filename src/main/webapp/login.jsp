@@ -1,5 +1,8 @@
+<%@page import="com.spring.more.users.service.UsersVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +18,7 @@
       <div id="loginContainer">
         <div id="loginContent">
           <div class="row_group">
-            <div>
+            <div>            
               <h3><label class="join" for="id">아이디</label></h3>
               <span class="ps_box">
                 <input

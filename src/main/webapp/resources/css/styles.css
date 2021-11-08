@@ -773,11 +773,135 @@ li.adminMenuItem a:hover {
   cursor: pointer;
 }
 
+/* 마이페이지  */
+
+.myPageUserInfo{
+  font-weight: 500;
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+
+.myPageContainerLeft{
+  width: 200px;
+  height: 900px;
+  background-color: #3AABAA;
+  margin-top: 60px;
+}
+
+.myPageLocationArea{
+  height: 40px;
+  width: 100%;
+  padding: 20px 0 0 20px;
+  border-bottom: 3px solid #DFE1E6;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 0px;
+}
+
+.myPageLeftMenu {
+  padding-left: 20px;
+  margin-top: 80px;
+}
+
+.myPageMenuItem a{
+  color: inherit;
+  color: white;
+}
+
+.myPageMenuItem{
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.adminContainerContentArea {
+  width: 650px;
+  margin: 0 auto;
+}
+
+.adminContainerContentHeader{
+  border: 1px solid #dde2e6;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px 0 rgb(33 37 41 / 11%);
+  background-color: #fff;
+  margin: 50px auto 0 0;
+}
+
+.myPageHeaderMenu{
+  display: flex;
+  padding-left: 60px;
+}
+
+.myPageHeaderMenuItem{
+  margin: 0 50px 0 100px;
+  color: #21AB33;
+}
+
+.myPageHeaderMenuItemTitle{
+  margin: 0 50px 0 50px;
+}
+
+.modifyMmeberForm{
+  border: 1px solid #dde2e6;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px 0 rgb(33 37 41 / 11%);
+  background-color: #fff;
+  margin: 50px auto 0 0;
+}
+
+.modifyMmeberEnd{
+  margin-top: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.modifyMmeberForm h2{
+  border-bottom: 1px solid black;
+}
+
+.modifyMmeberForm td{
+  color: #333333;
+}
+
+#prodItems tr {
+  margin-bottom: 15px;
+}
+
+.modifyMmeberForm label{
+  font-size: 16px;
+}
+
+.modifyMmeberForm input{
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+input[readonly] {
+  background-color: #F5F6F7;
+  color: #585858;
+}
+
+.addr_box{
+  display: block;
+  position: relative;
+  border: solid 1px #dadada;
+  padding: 10px 110px 10px 14px;
+  background: white;
+  box-sizing: border-box;
+}
+
+.addrArea{
+  display: flex;
+  margin-left: 53px;
+  color: #333333;
+  margin-top: 10px;
+}
+
+
 /* footer */
 #footer {
   position: relative;
   bottom: 0;
-  padding: 10px;
+  padding: 0;
 }
 
 #footer .infoArea .footerMenuArea,
