@@ -44,6 +44,8 @@ public class UsersController {
 	public String login(UsersVO vo, Model model, HttpServletRequest request) {		
 		UsersVO loginUsers = usersService.checkIdPassword(vo.getUser_id(), vo.getUser_pwd());
 		if (loginUsers != null) {
+			
+			
 			model.addAttribute("loginUsers", loginUsers);
 			return "loginSuccess.jsp";
 		} else {
@@ -58,5 +60,35 @@ public class UsersController {
         
         return "login.jsp";        
     }
-
+	
+	@RequestMapping(value = "/updateUsers.do", method = RequestMethod.POST)
+	public String updateUsers(UsersVO vo, Model model) {
+		usersService.updateUsers(vo);
+		model.addAttribute("loginUsers", vo);
+		return "updateUserSuccess.jsp";
+	}
+	
+	@RequestMapping(value = "/withdrawalUsers.do", method = RequestMethod.POST)
+	public String deleteUsers(UsersVO vo, Model model, SessionStatus status, HttpSession session) {
+		UsersVO loginUsers = usersService.checkIdPassword(vo.getUser_id(), vo.getUser_pwd());
+		if (loginUsers != null) {
+			usersService.deleteUsers(vo);
+			status.setComplete();
+			session.invalidate();
+			return "withdrawalSuccess.jsp";
+		} else {
+			return "withdrawalFail.jsp";
+		}
+	}
+	
+	@RequestMapping(value = "/userInfoValidate.do", method = RequestMethod.POST)
+	public String userInfoValidate(UsersVO vo, Model model) {
+		UsersVO loginUsers = usersService.checkIdPassword(vo.getUser_id(), vo.getUser_pwd());
+		if (loginUsers != null) {
+			return "userInfoValidateSuccess.jsp";
+		} else {
+			return "userInfoValidateFail.jsp";
+		}
+	}
+	
 }

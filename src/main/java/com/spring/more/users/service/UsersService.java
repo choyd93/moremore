@@ -7,7 +7,7 @@ public interface UsersService {
 	public List<UsersVO> selectAllUsers();
 	public int insertUsers(UsersVO vo);
 	public int updateUsers(UsersVO vo);
-	public int deleteUsers(String user_id);
+	public int deleteUsers(UsersVO vo);
 	public UsersVO checkIdPassword(String user_id, String user_pwd);
 
 }

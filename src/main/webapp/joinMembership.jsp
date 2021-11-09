@@ -7,98 +7,12 @@
 <title>회원가입 | more more</title>
 <script src=https://code.jquery.com/jquery-3.6.0.min.js></script>
    	<link rel="stylesheet" href="resources/css/styles.css" type="text/css" />
-	<!-- <script>
-	
-	 function join_btn() {
-		 
-		 var RegExp = /^[a-zA-Z0-9]{4,12}$/; // 아이디 유효성 검사 (비밀번호도)
-		 var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/; // 이메일 유효성 검사
-		 var nameExp = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // 이름 유효성 검사
-		 var jumin = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))-[1-4][0-9]{6}$/; // 주민등록번호
-		 
-		var form = document.joinMemberShipForm
-		if (!form.mid.value) {
-			alert("아이디를 입력해주세요.");
-			return;
-		}
-		
-		// id값 4~12 자리 이내에 작성
-		if (!RegExp.test(form.mid.value)) {
-			alert("4~12자리 영문대소문자와 숫자로만 입력해주세요.");
-			form.mid.value == "";
-			return;
-		}
-		 
-		// id와 비밀번호 값이 같을 경우
-		if (form.mid.value == form.mpw.value) {
-			alert("ID와 비밀번호가 같습니다. 다시 입력해주세요.");
-			return ;
-		}
-		
-		if (!form.mpw.value) {
-			alert("비밀번호를 입력해주세요.");
-			return;
-		}
-		
-		if (!form.mpw_check.value) {
-			alert("비밀번호를 한번 더 입력해주세요.");
-			return;
-		}
-		
-		if (form.mpw.value != form.mpw_check.value) {
-			alert("비밀번호가 다릅니다. 다시 입력해주세요.");
-			return;
-		}
-		
-		if (!form.mname.value) {
-			alert("이름을 입력해주세요.");
-			return;
-		}
-		
-		// 이름 형식이 다를경우(영어가 섞여있을 때 )
-		if(nameExp.test(form.mname.value) == false) {
-			alert("이름 형식이 맞지 않습니다. 다시 입력해주세요.");
-			return;
-		}
-		
-		if (!form.mphone.value) {
-			alert("전화번호를 입력해주세요.");
-			return;
-		}
-		if (!form.mjumin.value) {
-			alert("주민등록번호를 입력해주세요.");
-			return;
-		}
-		
-		if (!jumin.test(form.mjumin.value)) {
-			alert("주민등록번호 형식에 맞게 입력해주세요.");
-			return;
-		}
-		
-		if (!form.maddress.value) {
-			alert("주소를 입력해주세요.");
-			return;
-		}
-		
-		if (!form.memail.value) {
-			alert("이메일을 입력해주세요.");
-			return;
-		}
-		if (exptext.test(form.memail.value) == false) {
-			alert("이메일형식이 맞지 않습니다.");
-			return;
-		}
-		
-		
-		
-		form.submit();
-	}  
-</script>--> 
+
 </head>
 <body>
     <div id="header">
       <!-- <img src="/images/Naver_Logotype.svg.png" width="200px" /> -->
-      <h1 class="loginLogo"><span style="cursor:pointer;" onclick="javascript:location.href='home.jsp'">more&nbsp<br> more!</span></h1>
+      <h1 class="loginLogo"><span style="cursor:pointer;" onclick="javascript:location.href='home.jsp'"><img src="resources/images/logo2.png"></span></h1>
     </div>
     <form action="signup.do" method="post">
       <div id="joinContainerWrapper">
@@ -216,8 +130,8 @@
             <div>
             	<h3><label class="join">주소</label></h3>
 				<input class="d_btn" type="button" onclick="FindAddrDaumPostcode()" value="우편번호 찾기"><br>
-            	<input type="text" id="userPostcode" name="user_address" class="ps_box" placeholder="우편번호">
-				<input type="text" id="userAddress" name="user_address_number" class="ps_box" placeholder="주소">
+            	<input type="text" id="userPostcode" name="user_address_number" class="ps_box" placeholder="우편번호">
+				<input type="text" id="userAddress" name="user_address" class="ps_box" placeholder="주소">
 				<input type="text" id="userDetailAddress" class="ps_box"  placeholder="상세주소">
             </div>
             <div>

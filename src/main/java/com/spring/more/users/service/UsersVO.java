@@ -10,10 +10,16 @@ public class UsersVO {
 	private String user_gender;
 	private String user_joindate;
 	private String user_type;
-	
+	private String user_address;
+	private String user_address_number;
+	private String user_withdrawal_reason;
+
 	public UsersVO() {}
+
 	public UsersVO(String user_no, String user_id, String user_pwd, String user_name, String user_phone,
-			String user_email, String user_gender, String user_joindate, String user_type) {
+			String user_email, String user_gender, String user_joindate, String user_type, String user_address,
+			String user_address_number, String user_withdrawal_reason) {
+		super();
 		this.user_no = user_no;
 		this.user_id = user_id;
 		this.user_pwd = user_pwd;
@@ -23,6 +29,9 @@ public class UsersVO {
 		this.user_gender = user_gender;
 		this.user_joindate = user_joindate;
 		this.user_type = user_type;
+		this.user_address = user_address;
+		this.user_address_number = user_address_number;
+		this.user_withdrawal_reason = user_withdrawal_reason;
 	}
 
 	public String getUser_no() {
@@ -97,13 +106,37 @@ public class UsersVO {
 		this.user_type = user_type;
 	}
 
+	public String getUser_address() {
+		return user_address;
+	}
+
+	public void setUser_address(String user_address) {
+		this.user_address = user_address;
+	}
+
+	public String getUser_address_number() {
+		return user_address_number;
+	}
+
+	public void setUser_address_number(String user_address_number) {
+		this.user_address_number = user_address_number;
+	}
+
+	public String getUser_withdrawal_reason() {
+		return user_withdrawal_reason;
+	}
+
+	public void setUser_withdrawal_reason(String user_withdrawal_reason) {
+		this.user_withdrawal_reason = user_withdrawal_reason;
+	}
+
 	@Override
 	public String toString() {
 		return "UsersVO [user_no=" + user_no + ", user_id=" + user_id + ", user_pwd=" + user_pwd + ", user_name="
 				+ user_name + ", user_phone=" + user_phone + ", user_email=" + user_email + ", user_gender="
-				+ user_gender + ", user_joindate=" + user_joindate + ", user_type=" + user_type + "]";
+				+ user_gender + ", user_joindate=" + user_joindate + ", user_type=" + user_type + ", user_address="
+				+ user_address + ", user_address_number=" + user_address_number + ", user_withdrawal_reason="
+				+ user_withdrawal_reason + "]";
 	}
-	
-	
 
 }

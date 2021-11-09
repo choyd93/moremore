@@ -4,18 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>마이 페이지 </title>
+<title>회원 탈퇴 </title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0" />
    	<link rel="stylesheet" href="resources/css/styles.css" type="text/css" />
    	<script src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 	$(function(){
+		
+		$('select[readonly="readonly"] option:not(:selected)').attr('disabled',true);
 	
-		var userIdCheck = RegExp(/^[A-Za-z0-9_\-]{4,12}$/);
 		var passwdCheck = RegExp(/^(?=.*[A-Za-z])(?=.*[0-9]).{8,16}$/);
-		var nameCheck = RegExp(/^[가-힣]{2,6}$/);
-		var juminCheck = RegExp(/^[0-9]{13,13}$/);
 		
 			$("#ok").click(function(){
 				
@@ -32,27 +31,9 @@
 					return;
 				}
 				
-				if($("#user_phone").val().length==0){ //연락처 빈칸확인
-					alert("연락처('-'제외)를 입력해주세요.");
-					$("#user_phone").focus();
-					return;
-				}
-				
-				if($("#userPostcode").val().length==0){ //우편번호 빈칸확인
-					alert("우편번호를 입력해주세요.");
-					$("#userPostcode").focus();
-					return;
-				}
-				
-				if($("#userAddress").val().length==0){ //주소 빈칸확인
-					alert("주소를 입력해주세요.");
-					$("#userAddress").focus();
-					return;
-				}
-				
-				if(confirm("수정하시겠습니까?")){
+				if(confirm("정말로 탈퇴 하시겠습니까?")){
 					//검증에 이상이 없으면 submit
-					$("#updateUsers").submit();
+					$("#withdrawalUsers").submit();
 				}else{
 				$("#user_pwd_check").focus();
 				return;
@@ -69,7 +50,7 @@
 		<div class="myPageContainerLeft">
 			<ul class="myPageLeftMenu">
 				<li class="adminMenuItem"><a href="userInfo.jsp">메인</a></li>
-				<li class="adminMenuItem"><a href="myPageUserInfo.jsp">My 회원 정보</a></li>
+				<li class="adminMenuItem"><a href="userInfoValidate.jsp">My 회원 정보</a></li>
 				<li class="adminMenuItem"><a href="#">관심 프로젝트</a></li>
 				<li class="adminMenuItem"><a href="withdrawal.jsp">회원 탈퇴</a></li>
 			</ul>
@@ -77,21 +58,43 @@
 		<div class="adminContainerRightWrapper">
 			<div class="adminContainerRight">
 				<div class="myPageLocationArea"">
-					<h8>My 회원 정보</h8>
+					<h8>마이페이지</h8>
 				</div>
 				<div class="adminContainerContentArea">
 					<div >
-						<form action="updateUsers.do" method="post" id="updateUsers" name="updateUsers">
-						  <div class="modifyMmeberForm">
-						      <table id="prodItems"  style="position: relative; top : 10px; left:50px; width:500px;">
+						<form action="withdrawalUsers.do" method="post" id="withdrawalUsers" name="withdrawalUsers">
+						  <div class="modifyMmeberForm" style="padding-bottom: 50px;">
+						      <table id="prodItems"  style="position: relative; top : 10px; left:50px; width:80%;">
 						        <tr>
-						        <td colspan="2"><h2 class="myPageUserInfo">회원정보</h2></td>
+						        	<td colspan="2"><h2 class="myPageUserInfo" style="text-align: center;">${loginUsers.user_name }님.</h2></td>
+						        </tr>
+						        <tr>
+						       		<td colspan="2" style="font-size: 16px; text-align: center; padding-bottom: 30px; color: #FF6767;">회원탈퇴사유를 입력해 주시면 앞으로 더욱더 개선해 나가는 <br> 모아모아가 되도록 하겠습니다.</td>
+						        </tr>
+						        <tr>
+						          <td colspan="2" style="padding-bottom: 10px;"><label>탈퇴사유<span style="color: red">*</span></label></td>
+						        </tr>
+						        <tr>
+						          <td colspan="2">
+						          	<select id="withdrawalSelect" style="width: 100%;">
+						          		<option value="탈퇴 사유 선택" selected>탈퇴 사유를 선택하세요.</option>
+						          		<option value="재가입을 위해" >재가입을 위해</option>
+						          		<option value="컨텐츠 품질과 서비스 정보 부족">컨텐츠 품질과 서비스 정보 부족</option>
+						          		<option value="고객 서비스 불만">고객 서비스 불만</option>
+						          		<option value="시스템 장애">시스템 장애</option>
+						          		<option value="개인정보 노출 우려">개인정보 노출 우려</option>
+						          		<option id="etc" value="">기타(직접입력)</option>
+						          	</select>
+						          	
+						          </td>
+						        </tr>
+						        <tr>
+						          <td colspan="2">
+						       		<textarea id="user_withdrawal_reason" name="" rows=3 style="width: 96%;" readonly>
+						          	</textarea>
+						          </td>
 						        </tr>
 						        
-						        <tr>
-						          <td><label>이름<span style="color: red"></span></label></td>
-						          <td><input type="text" name="mname" id="mname"  class="addr_box" required="required" value=${loginUsers.user_name } readonly></td>
-						        </tr>
 						        <%-- <tr>
 							     <td>
 							          <label>생년월일<span style="color: red">*</span></label>
@@ -100,6 +103,10 @@
 						          <input type="text" name="mjumin" id="mjumin" class="formControl"  required="required" value=${loginUsers.user_birthday } readonly>
 						        </td>
 						        </tr> --%>
+						         <tr>
+						        <td colspan="2" style="padding-top: 10px; text-align: center;"><h2 class="myPageUserInfo">본인 확인</h2></td>
+						        </tr>
+						        
 						        <tr>
 						        <td>
 						          <label>아이디<span style="color: red"></span></label></td>
@@ -109,7 +116,7 @@
 						        </tr>
 						        <tr>
 						        <td>
-						          <label>신규비밀번호<span style="color: red">*</span></label>
+						          <label>비밀번호<span style="color: red">*</span></label>
 						        </td>
 						        <td>
 						        <input type="password" name="user_pwd" id="user_pwd" class="addr_box" required="required"  maxlength="12" placeholder="비밀번호(5~20자리)">
@@ -117,35 +124,13 @@
 						         </tr>
 						         <tr>
 						         <td>
-						          <label>신규비밀번호확인<span style="color: red">*</span></label></td>
+						          <label>비밀번호확인<span style="color: red">*</span></label></td>
 						          <td><input  type="password" name="user_pwd_check" id="user_pwd_check" class="addr_box" required="required" onclick="confirm_pw()"  maxlength="12" placeholder="비밀번호 확인"></td>
 						        </tr>
-						        <tr>
-						        <td>
-						          <label>휴대폰번호<span style="color: red">*</span></label></td>
-						          <td><input type="text" name="user_phone" id="user_phone" class="addr_box" required="required" value=${loginUsers.user_phone }  maxlength="13" onkeyup="inputPhoneNumber(this);">
-						        </td>
-						        </tr>
-						        <tr>
-								<td>	
-						          <label>이메일<span style="color: red">*</span></label></td>
-						          <td><input type="text" name="user_email" id="user_email" class="addr_box" value=${loginUsers.user_email } required="required"></td>
-						        </tr>
 							    </table>
-							    <dl class="addrArea">
-							    	<dt>
-						       			<label>주소<span style="color: red">*</span></label>
-						       		</dt>
-						       		<dd style="margin-left: 110px;">
-										<input class="d_btn" type="button" onclick="FindAddrDaumPostcode()" value="우편번호 찾기">
-						            	<input type="text" id="userPostcode" name="user_address_number" class="addr_box" placeholder="우편번호" value="${loginUsers.user_address_number }">
-										<input type="text" id="userAddress" name="user_address" class="addr_box" placeholder="주소" value="${loginUsers.user_address }">
-										<input type="text" id="userDetailAddress" class="addr_box"  placeholder="상세주소">
-									</dd>	              
-						        </dl>
 						    </div>
 						    <div class="modifyMmeberEnd">
-							    <input type="button" id="ok" class="d_btn" value="수정완료" onclick="modify_btn()">
+							    <input type="button" id="ok" class="d_btn" value="회원탈퇴" onclick="modify_btn()">
 					        </div>
 						    <input type="hidden" name="mpoint" id="mpoint" value="0">
 					        <input type="hidden" name="mcumulative_buy" id="mcumulative_buy" value="0">
@@ -160,6 +145,23 @@
 	<%@include file="homeFooter.jsp" %>
 	 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
+	var text = document.querySelector("#user_withdrawal_reason");
+	var drop = document.querySelector("#withdrawalSelect");
+	var etc = document.querySelector("#etc");
+	
+	drop.addEventListener("change", function(e){
+		text.value = e.target.value;
+	});
+	
+	drop.addEventListener("change", function(){
+        if(drop.value === ""){
+        	text.removeAttribute("readonly");
+        } else {
+        	text.setAttribute("readonly", true);
+        }
+	});
+	
+	// 다음 주소 api
 	function FindAddrDaumPostcode() {
 	    new daum.Postcode({
 	        oncomplete: function(data) {

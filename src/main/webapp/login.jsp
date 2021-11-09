@@ -12,7 +12,7 @@
 </head>
 <body style="position: relative; background: #f5f6f7;">
     <div id="loginHeader">
-      <a href="home.jsp"><h1 class="loginLogo">more&nbsp<br> more!</h1></a>
+      <a href="home.jsp"><h1 class="loginLogo"><span ><img src="resources/images/logo2.png"></span></a>
     </div>
     <form action="login.do" method="post" id="FormLogin" name="logInForm">
       <div id="loginContainer">

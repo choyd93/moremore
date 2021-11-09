@@ -25,25 +25,28 @@ public class UsersDAO {
 	}
 
 	public int insertUsers(UsersVO vo) {
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("user_name", vo.getUser_name());
-		map.put("user_id", vo.getUser_id());
-		map.put("user_pwd", vo.getUser_pwd());
-		map.put("user_phone", vo.getUser_phone());
-		map.put("user_email", vo.getUser_email());
-		map.put("user_gender", vo.getUser_gender());
-		System.out.println(map);
+//		Map<String, String> map = new HashMap<String, String>();
+//		map.put("user_name", vo.getUser_name());
+//		map.put("user_id", vo.getUser_id());
+//		map.put("user_pwd", vo.getUser_pwd());
+//		map.put("user_phone", vo.getUser_phone());
+//		map.put("user_email", vo.getUser_email());
+//		map.put("user_gender", vo.getUser_gender());
+//		map.put("user_address", vo.getUser_address());
+//		map.put("user_address_number", vo.getUser_address_number());
+
+//		System.out.println(map);
+		System.out.println(vo);
 		return mybatis.insert("users.insertUsers", vo);
 	}
 
 	public int updateUsers(UsersVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println(vo);
+		return mybatis.update("users.updateUsers", vo);
 	}
 
-	public int deleteUsers(String user_id) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteUsers(UsersVO vo) {
+		return mybatis.update("users.deleteUsers", vo);
 	}
 
 	public UsersVO checkIdPassword(String user_id, String user_pwd) {

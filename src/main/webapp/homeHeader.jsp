@@ -7,7 +7,7 @@
 		<div class="header-contaniner" id="headerContainerId">
 			<h4 class="headerLogo">
 				<a href="home.jsp" class="headerLogo purple">
-				<span >more more!</span>
+				<span ><img src="resources/images/logo1.png"></span>
 				</a>
 			</h4>
 			<div class="headerMenuArea">

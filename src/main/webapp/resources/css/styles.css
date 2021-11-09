@@ -11,6 +11,16 @@ body {
   background-color: #F5F6F7;
 }
 
+.headerLogo img{
+  width: 80px;
+  height: 50px;
+  margin-top: 5px;
+}
+
+.loginLogo img{
+  width: 200px;
+}
+
 ul{
   list-style:none;
 }
@@ -860,6 +870,7 @@ li.adminMenuItem a:hover {
 
 .modifyMmeberForm td{
   color: #333333;
+  font-size: 16px;
 }
 
 #prodItems tr {
@@ -894,6 +905,13 @@ input[readonly] {
   margin-left: 53px;
   color: #333333;
   margin-top: 10px;
+}
+
+#prodItems select, textarea{
+  border: 1px solid #DBDBDB;
+  font-size: 16px;
+  padding: 10px;
+  color: #333333;
 }
 
 
