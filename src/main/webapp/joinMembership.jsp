@@ -120,8 +120,8 @@
               <span class="ps_box">
                 <select id="gender" name="user_gender">
                   <option selected value="noneGender">성별</option>
-                  <option value="man">남</option>
-                  <option value="woman">여</option>
+                  <option value="남">남</option>
+                  <option value="여">여</option>
                   <option value="genderUnchecked">선택 안함</option>
                 </select>
               </span>

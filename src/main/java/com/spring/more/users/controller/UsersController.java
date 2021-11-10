@@ -44,8 +44,6 @@ public class UsersController {
 	public String login(UsersVO vo, Model model, HttpServletRequest request) {		
 		UsersVO loginUsers = usersService.checkIdPassword(vo.getUser_id(), vo.getUser_pwd());
 		if (loginUsers != null) {
-			
-			
 			model.addAttribute("loginUsers", loginUsers);
 			return "loginSuccess.jsp";
 		} else {

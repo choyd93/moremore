@@ -11,12 +11,16 @@
    	<script src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 	$(function(){
-		
-		$('select[readonly="readonly"] option:not(:selected)').attr('disabled',true);
-	
+			
 		var passwdCheck = RegExp(/^(?=.*[A-Za-z])(?=.*[0-9]).{8,16}$/);
 		
 			$("#ok").click(function(){
+				
+				if($("#user_withdrawal_reason").val() === ""){
+					alert("탈퇴 사유를 입력해주세요.");
+					$("#user_withdrawal_reason").focus();
+					return;
+				}
 				
 				if(passwdCheck.test($("#user_pwd").val())){ //비밀번호 검증
 				}else{
@@ -78,8 +82,8 @@
 						          <td colspan="2">
 						          	<select id="withdrawalSelect" style="width: 100%;">
 						          		<option value="탈퇴 사유 선택" selected>탈퇴 사유를 선택하세요.</option>
-						          		<option value="재가입을 위해" >재가입을 위해</option>
-						          		<option value="컨텐츠 품질과 서비스 정보 부족">컨텐츠 품질과 서비스 정보 부족</option>
+						          		<option value="재가입을 위해">재가입을 위해</option>
+						          		<option value="컨텐츠 품질과 서비스 정보 부족" >컨텐츠 품질과 서비스 정보 부족</option>
 						          		<option value="고객 서비스 불만">고객 서비스 불만</option>
 						          		<option value="시스템 장애">시스템 장애</option>
 						          		<option value="개인정보 노출 우려">개인정보 노출 우려</option>
@@ -90,7 +94,7 @@
 						        </tr>
 						        <tr>
 						          <td colspan="2">
-						       		<textarea id="user_withdrawal_reason" name="" rows=3 style="width: 96%;" readonly>
+						       		<textarea id="user_withdrawal_reason" name="user_withdrawal_reason" rows=3 style="width: 96%;" readonly>
 						          	</textarea>
 						          </td>
 						        </tr>

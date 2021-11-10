@@ -1,4 +1,4 @@
-package com.spring.more.review;
+package com.spring.more.customer.service;
 
 public class ReviewVO {
 	private String review_no;

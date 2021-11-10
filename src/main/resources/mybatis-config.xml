@@ -8,10 +8,12 @@
 	</settings>
 	<typeAliases>
 		<typeAlias alias="users" type="com.spring.more.users.service.UsersVO"/>
+		<typeAlias alias="project" type="com.spring.more.project.service.ProjectVO"/>
 	</typeAliases>
   
   <!-- SQL 작성파일인 매퍼 파일 위치 지정 -->
   <mappers>
     <mapper resource="mappings/member-mapper.xml"/>
+    <mapper resource="mappings/project-mapper.xml"/>
   </mappers>
 </configuration>

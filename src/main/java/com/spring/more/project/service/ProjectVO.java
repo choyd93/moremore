@@ -1,4 +1,4 @@
-package com.spring.more.project;
+package com.spring.more.project.service;
 
 public class ProjectVO {
 	private String pro_no;
