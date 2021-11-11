@@ -19,8 +19,28 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public List<ProjectVO> selectAllProject() {
-		return projectDAO.selectAllProject();
+	public List<ProjectVO> bestItemList() {
+		return projectDAO.bestItemList();
+	}
+	
+	@Override
+	public List<ProjectVO> recommendItemList() {
+		return projectDAO.recommendItemList();
+	}
+	
+	@Override
+	public List<ProjectVO> hashTagItemList() {
+		return projectDAO.hashTagItemList();
+	}
+	
+	@Override
+	public List<ProjectVO> searchFunding(ProjectVO vo) {
+		return projectDAO.searchFunding(vo);
+	}
+	
+	@Override
+	public List<ProjectVO> searchItemList(String pro_stitle) {
+		return projectDAO.searchItemList(pro_stitle);
 	}
 	
 	@Override

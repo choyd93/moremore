@@ -23,6 +23,7 @@
 	
 	<update id="updateUsers" parameterType="users">
 		UPDATE USERS SET 
+			USER_NAME = #{user_name}, 
 			USER_PWD = #{user_pwd}, 
 			USER_PHONE = #{user_phone}, 
 			USER_EMAIL = #{user_email},

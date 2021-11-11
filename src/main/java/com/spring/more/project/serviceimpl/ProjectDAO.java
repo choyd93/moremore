@@ -20,8 +20,24 @@ public class ProjectDAO {
 		return mybatis.selectOne("project.selectOneProject", pro_no);
 	}
 
-	public List<ProjectVO> selectAllProject() {
-		return mybatis.selectList("project.selectAllProject");
+	public List<ProjectVO> bestItemList() {
+		return mybatis.selectList("project.bestItemList");
+	}
+	
+	public List<ProjectVO> recommendItemList() {
+		return mybatis.selectList("project.recommendItemList");
+	}
+	
+	public List<ProjectVO> hashTagItemList() {
+		return mybatis.selectList("project.hashTagItemList");
+	}
+	
+	public List<ProjectVO> searchFunding(ProjectVO vo) {
+		return mybatis.selectList("project.searchFunding", vo);
+	}
+	
+	public List<ProjectVO> searchItemList(String pro_stitle) {
+		return mybatis.selectList("project.searchItemList", pro_stitle);
 	}
 
 	public int insertProject(ProjectVO vo) {

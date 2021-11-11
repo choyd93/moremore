@@ -87,10 +87,9 @@
 						        <tr>
 						        <td colspan="2"><h2 class="myPageUserInfo">회원정보</h2></td>
 						        </tr>
-						        
 						        <tr>
 						          <td><label>이름<span style="color: red"></span></label></td>
-						          <td><input type="text" name="mname" id="mname"  class="addr_box" required="required" value=${loginUsers.user_name } readonly></td>
+						          <td><input type="text" name="user_name" id="user_name"  class="addr_box" required="required" value=${loginUsers.user_name } readonly></td>
 						        </tr>
 						        <%-- <tr>
 							     <td>

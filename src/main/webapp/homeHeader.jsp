@@ -12,15 +12,17 @@
 			</h4>
 			<div class="headerMenuArea">
 				<ul class="headerMenu">
-					<li class="headerMenuItem middleSize" id="headerMenuFunding"><a href=#>펀딩하기</a></li>
+					<li class="headerMenuItem middleSize" id="headerMenuFunding"><a href="fundingProjectList.jsp">펀딩하기</a></li>
 					<li class="headerMenuItem middleSize" id="headerMenuBuy"><a href=#>구매하기</a></li>
 					<li class="headerMenuItem middleSize" id="headerMenuGuide"><a href=# class="headerMenuHidden">이용가이드</a></li>
 					<li class="headerMenuItem moreItem" id="headerMenuMoreItem"><a href=# class="headerMenuHidden">더보기</a></li>
 					<li class="headerMenuItem middleSize" id="headerMenuProjectBtnList"><a href=# id="headerMenuProjectBtn" class="purple">프로젝트 신청</a></li>
 				</ul>
-			</di v>
+			</div>
 			<div class="headerUtil">
-				<input type="search" class="searchBar" placeholder="프로젝트 검색하기"/>
+				<form name="headerSearch" action="searchFunding.do" method="get">
+					<input type="search" name="pro_stitle" class="searchBar" placeholder="프로젝트 검색하기"/>
+				</form>
 				<!-- 비로그인 시 출력 -->
 				<c:if test="${ empty sessionScope.loginUsers }">
 					<button type="button" class="noneBtn" onclick="javascript:location.href='login.jsp'">로그인</button>

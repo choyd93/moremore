@@ -15,6 +15,9 @@
 	</properties>
 	<dependencies>
 	
+		<!-- JSON -->
+		
+		
 		<!-- JSON 처리 라이브러리 -->
 		<dependency>
 		  <groupId>org.codehaus.jackson</groupId>

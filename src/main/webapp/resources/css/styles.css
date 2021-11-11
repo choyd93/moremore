@@ -173,6 +173,7 @@ a {
 }
 
 .headerUtil {
+  display: flex;
   position: absolute;
   top: 15px;
   right: 30px;
@@ -193,7 +194,7 @@ a {
   padding-right: 20px;
 }
 
-#headerSlide{
+.headerSlide{
   position: relative;
   width:100%;
   height:400px;
@@ -201,6 +202,26 @@ a {
   background-color: #F0F1E2;
   margin-top:0px;
   min-width: 1550px;
+}
+
+/* 펀딩하기 페이지 카테고리 헤더영역  */
+#projectCate{
+  position: relative;
+  width:100%;
+  height:235px;
+  background-position: 50% 50%;
+  margin-top:0px;
+  min-width: 1550px;
+  border-bottom: 1px solid #dadada;
+  margin-bottom: 50px;
+}
+
+.fundingProjectPageTitle{
+  font-family: Noto Sans KR,Nanum Gothic,Malgun Gothic,맑은 고딕,Dotum,돋움,Helvetica,AppleSDGothicNeo,sans-serif;
+  text-align: center;
+  padding-top: 70px;
+  margin-top: 0px;
+  font-weight: 500;
 }
 
 header ul {
@@ -268,6 +289,7 @@ header ul {
   font-size: 15px;
   color: #80c72d;
   text-align: center;
+  cursor: pointer;
 }
 
 .projectWrapper {
@@ -335,7 +357,7 @@ header ul {
    display: flex;
    padding-left: 0px;
    margin-top: 0px;
-   justify-content: space-between;
+  /*  justify-content: space-between; */
  }
  
 .projectContent{
@@ -582,6 +604,24 @@ label {
 }
 
 /* input, button 타입 모음 */
+
+.fundingHashTagBtn {
+    width: 100px;
+    border: 1px solid #dadada;
+    border-radius: 14px;
+    padding: 5px;
+    margin-left: 10px;
+    font-size: 15px;
+    color: #777;
+    text-align: center;
+    cursor: pointer;
+}
+
+.fundingHashTagBtn .on a{
+	background-color: #fff;
+    border: 2px solid #80c72d;
+    color: #80c72d;
+}
 
 .noneBtn{
   border: none;
