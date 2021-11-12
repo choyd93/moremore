@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,10 +15,19 @@
 	<div class="adminContainerWrapper">
 		<div class="myPageContainerLeft">
 			<ul class="myPageLeftMenu">
-				<li class="adminMenuItem"><a href="userInfo.jsp">메인</a></li>
-				<li class="adminMenuItem"><a href="userInfoValidate.jsp">My 회원 정보</a></li>
-				<li class="adminMenuItem"><a href="#">관심 프로젝트</a></li>
-				<li class="adminMenuItem"><a href="withdrawal.jsp">회원 탈퇴</a></li>
+				<li class="myPageMenuItem"><a href="userInfo.jsp">메인</a></li>
+				<li class="myPageMenuItem"><a href="userInfoValidate.jsp">My 회원 정보</a></li>
+				<li class="myPageMenuItem"><a href="#">관심 프로젝트</a></li>
+				<li class="myPageMenuItem"><a href="withdrawal.jsp">회원 탈퇴</a></li>
+				<c:if test="${loginUsers.user_type == '펀딩 판매자'}">
+					<li class="myPageMenuItem"><a href="fundingAdminHome.jsp">펀딩 관리 페이지</a></li>
+				</c:if>
+				<c:if test="${loginUsers.user_type == '상품 판매자'}">
+					<li class="myPageMenuItem"><a href="productAdminHome.jsp">상품 관리 페이지</a></li>
+				</c:if>
+				<c:if test="${loginUsers.user_type == '관리자'}">
+					<li class="myPageMenuItem"><a href="AdminHome.jsp">관리자 페이지</a></li>
+				</c:if>
 			</ul>
 		</div>
 		<div class="adminContainerRightWrapper">

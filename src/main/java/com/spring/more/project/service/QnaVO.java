@@ -1,4 +1,4 @@
-package com.spring.more.customer.service;
+package com.spring.more.project.service;
 
 public class QnaVO {
 	private String qna_no;

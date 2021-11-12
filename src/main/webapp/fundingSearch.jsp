@@ -38,26 +38,32 @@
 	            success: function (data) {
 	          	  var result = data.json;
 	              console.log("함수 실행~~~");
+	              console.log(data.length);
 	              
 	              // 데이터 넣기 전 공백으로 초기화 
 	              $("#projectSearchItmeList").html("");
 	              
 	              var result = "";
-	              $.each(data, function(index, item){
-	  	          	 console.log(index + " " + item.pro_stitle);
-	  	             result += "<li class='projectCardItem'>";
-	  	             result += "<div class='projectThumbnailWrapper'>";
-	  	             result += "<img class='projectThumbnail' src='" + item.pro_thumbnail_path + "'></div>";
-	  	             result += "<div class='projectContent'>";
-	  	             result += "<p>" + item.pro_stitle + "</p>";
-	  	             result += "<span class='projectAchievementRate'> 달성</span>";
-	  	             result += "<span class='greyColor'>" + item.pro_gprice + "</span>";
-	  	             result += "<span class='greyColor floatRight'>" + item.pro_close_dt + "</span></div></li>";
-	           	});
-	              
-	              console.log("result : " + result);
-	              $("#projectSearchItmeList").html(result);
-	              
+	              if(data.length >= 1){
+		              $.each(data, function(index, item){
+		  	          	 console.log(index + " " + item.pro_stitle);
+		  	             result += "<li class='projectCardItem'>";
+		  	             result += "<div class='projectThumbnailWrapper'>";
+		  	             result += "<img class='projectThumbnail' src='" + item.pro_thumbnail_path + "'></div>";
+		  	             result += "<div class='projectContent'>";
+		  	             result += "<p>" + item.pro_stitle + "</p>";
+		  	             result += "<span class='projectAchievementRate'> 달성</span>";
+		  	             result += "<span class='greyColor'>" + item.pro_gprice + "</span>";
+		  	             result += "<span class='greyColor floatRight'>" + item.pro_close_dt + "</span></div></li>";
+		           	  });
+		              
+		              console.log("result : " + result);
+		              $("#projectSearchItmeList").html(result);
+	              } else {
+	            	 result += "<li style='padding-left: 600px;'>검색결과가 존재하지 않습니다.</li>"
+	                 console.log("result : " + result);
+		             $("#projectSearchItmeList").html(result);
+	              }
 	            },
 	            error: function (request, status, error, data) {
 	          	 
@@ -81,7 +87,6 @@
 	</div>
 	<div id="containerWrapper">
 		<div class="container" style="margin-bottom: 300px;">
-			
 			<div class="projectWrapper">
 				<ul id="projectSearchItmeList" class="projectCard">
 				</ul>

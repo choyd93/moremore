@@ -57,10 +57,9 @@
 				$("#user_pwd_check").focus();
 				return;
 				}
-				
 		});
 	});
-	
+
 	</script>
 </head>
 <body>
@@ -68,10 +67,10 @@
 	<div class="adminContainerWrapper">
 		<div class="myPageContainerLeft">
 			<ul class="myPageLeftMenu">
-				<li class="adminMenuItem"><a href="userInfo.jsp">메인</a></li>
-				<li class="adminMenuItem"><a href="myPageUserInfo.jsp">My 회원 정보</a></li>
-				<li class="adminMenuItem"><a href="#">관심 프로젝트</a></li>
-				<li class="adminMenuItem"><a href="withdrawal.jsp">회원 탈퇴</a></li>
+				<li class="myPageMenuItem"><a href="userInfo.jsp">메인</a></li>
+				<li class="myPageMenuItem"><a href="myPageUserInfo.jsp">My 회원 정보</a></li>
+				<li class="myPageMenuItem"><a href="#">관심 프로젝트</a></li>
+				<li class="myPageMenuItem"><a href="withdrawal.jsp">회원 탈퇴</a></li>
 			</ul>
 		</div>
 		<div class="adminContainerRightWrapper">

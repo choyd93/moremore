@@ -296,8 +296,8 @@
         <div class="swiper-slide"><img class="headerSlide" src="https://image.hago.kr/mall/display/mmon-templates/6/51/590/pc_image_1.jpg?ut=2021-11-11 18:00:31"></div>
         <div class="swiper-slide"><img class="headerSlide" src="https://image-se.ycrowdy.com/20211022/CROWDY_0_202110222242110129_gaeul.png"></div>
       </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next" style="color:grey;"></div>
+      <div class="swiper-button-prev" style="color:grey;"></div>
       <div class="swiper-pagination"></div>
     </div>
 
@@ -371,7 +371,7 @@
 			<div class="projectStartBanner">
 				<p>좋은 아이디어가 있으신가요?</p>
 				<h4>지금바로 펀딩 프로젝트를 만들어서 참여해보세요!</h4> 
-				<button class="blackBtn" type="button">바로 가기</button>
+				<button class="IndigoBtn" type="button">바로 가기</button>
 			</div>
 			</div>
 		</div>
