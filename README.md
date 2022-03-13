@@ -9,6 +9,8 @@
 
 ![메인페이지](https://user-images.githubusercontent.com/69706762/158047887-a1cd6bdf-e1f8-4733-9dae-b7fa71e76bce.gif)
 
+💼 <a href=https://github.com/choyd93/moremore/wiki/%EB%8B%B4%EB%8B%B9--%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B0%8F-%EA%B8%B0%EB%8A%A5-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0>담당 페이지 및 기능 살펴보기 링크</a>
+
 ---
 
 ## 2. 사용 기술 🛠️ 
@@ -48,3 +50,6 @@
     - 주문관리
     - 재고관리
     - 문의관리
+
+
+💼 <a href=https://github.com/choyd93/moremore/wiki/%EB%8B%B4%EB%8B%B9--%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%B0%8F-%EA%B8%B0%EB%8A%A5-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0>담당 페이지 및 기능 살펴보기 링크</a>
