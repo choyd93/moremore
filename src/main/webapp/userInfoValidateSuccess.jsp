@@ -8,9 +8,8 @@
 </head>
 <body>
 	<script>
-		alert("본인 확인이 완료 되었습니다.")
+		alert("본인 확인이 완료 되었습니다.");
 		
-		<%-- <%response.sendRedirect("mainMenu.jsp"); %> --%>
 	 	location.href="myPageUserInfo.jsp";
 	 </script>
 </body>

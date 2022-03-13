@@ -40,6 +40,44 @@ a {
   margin-top: 8px;
 }
 
+/* 테이블 */
+/* div.table 
+{
+    display:table;
+}
+form.tr, div.tr
+{
+    display:table-row;
+}
+span.td
+{
+    display:table-cell;
+} */
+
+div.table {
+  display: table;
+  width: 100%;
+}
+div.tr {
+  display: table-row;
+}
+div.td {
+  display: table-cell;
+}
+
+span.td {
+  display: table-cell;
+}
+
+div.thead {
+  display: table-header-group;
+}
+
+div.tbody {
+  display: table-row-group;
+}
+
+
 /* 미디어 쿼리  */
 
 @media (max-width: 1200px){
@@ -225,7 +263,7 @@ a {
 }
 
 header ul {
-  width:100%;
+  width:80%;
   height: 100%;
   display: flex;
   justify-content: space-between;
@@ -266,12 +304,12 @@ header ul {
 
 
 .projectStartBanner{
-  background-color: #d9d9d9;
-  max-width: 1480px;
-  height:150px;
-  text-align: center;
-  padding: 10px;
-  margin: 120px auto 60px;
+ 	max-width: 1480px;
+    height: 200px;
+    text-align: center;
+    padding: 10px;
+    margin: 120px auto 60px;
+    background: url(https://static.wadiz.kr/main/media/discussion-together.28f368d3.jpg) no-repeat 50%/cover;
 }
 
 
@@ -357,6 +395,8 @@ header ul {
    display: flex;
    padding-left: 0px;
    margin-top: 0px;
+   flex-wrap: wrap;
+    width: 1600px;
   /*  justify-content: space-between; */
  }
  
@@ -652,7 +692,7 @@ label {
 
 input[type="radio"] {
   margin: 10px;
-  display: none;
+  /* display: none; */
 }
 
 input[type="radio"] + label {
@@ -751,8 +791,8 @@ input[type="radio"]:checked + label {
 }
 
 .IndigoBtn {
-	font-weight: 400;
-    background-color: #0E0C30;
+    font-weight: 400;
+    background-color: #80c72d;
     border: none;
     color: white;
     padding: 0 20px 0 20px;
@@ -775,10 +815,12 @@ input[type="radio"]:checked + label {
   display: flex;
 }
 
-.adminContainerLeft{
+
+.adminContainerLeft {
   width: 140px;
-  height: 1000px;
-  background-color: #7F7F7F;
+  height: 1200px;
+  background-color: #353535;
+  margin-top: 0px;
 }
 
 .adminContainerRight{
@@ -826,14 +868,6 @@ li.adminMenuItem a:hover li.adminMenuItem a:focus {
 }
 
 
-.adminContainerLeft {
-  width: 180px;
-  height: 1200px;
-  background-color: #353535;
-  margin-top: 0px;
-}
-
-
 .adminLocationArea{
   height: 40px;
   width: 100%;
@@ -860,15 +894,11 @@ li.adminMenuItem a:hover li.adminMenuItem a:focus {
   padding-left: 20px;
   padding-right: 20px;
   margin-bottom: 0px;
-  padding-top: 40px;
+  padding-top: 10px;
 }
 
 .blueItem {
   color: #286DB4;
-}
-
-.adminContentInfoItem{
-	
 }
 
 .adminHeaderTitle{
@@ -901,9 +931,16 @@ li.adminMenuItem a:hover li.adminMenuItem a:focus {
 }
 
 /* 펀딩 관리자 페이지 */
+/* 관리자 메인 페이지 카드 폭 */
 .fundingAdminContainerLeftContentArea{
   width: 800px;
   margin: 0 auto;
+}
+
+/* 관리자 페이지 결제현황, 문의관리 페이지 카드 폭 */
+.fundingAdminContainerLeftContentAreaWide {
+    width: 1000px;
+    margin: 0 auto;
 }
 
 .fundingAdminContainerRightContentArea{
@@ -924,7 +961,37 @@ li.adminMenuItem a:hover li.adminMenuItem a:focus {
   font-size: 18px;
 }
 
-/* 관리자 메인 페이지 테이블  */
+.currentSalesStatusTitle {
+  text-align: center;
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+
+#currentSalesStatus{
+  text-align: center;
+  margin-top: 10px;
+}
+
+#currentSalesStatus h1{
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.adminContentinfoUl{
+    display: flex;
+    padding-left: 100px;
+    color: grey;
+}
+
+.adminContentInfoItem {
+    margin-right: 20px;
+    font-size: 18px;
+}
+
+
+/* 관리자 메인 페이지  */
+/* 테이블 */
 #fundingAdminMainArea {
   float: right;
   width: 800px;
@@ -964,9 +1031,17 @@ li.adminMenuItem a:hover li.adminMenuItem a:focus {
 }
 
 .fundingAdmintableContent {
-  width: 730px;
+
 }
 
+.fundingAdminMainAreaCenter {
+  width: 800px;
+  margin: auto;
+}
+
+#fundingAdminInventoryManageList input {
+  width: 50px;
+}
 
 .pageBtn {
   border: 1px solid #d9d9d9;

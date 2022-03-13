@@ -45,4 +45,21 @@
 			USER_WITHDRAWAL_REASON = #{user_withdrawal_reason}
 		WHERE USER_ID = #{user_id}
 	</delete>
+	
+	
+<!-- 	// 은해누나 -->
+<select id="getUsers" parameterType="users" resultType="users">
+		SELECT * FROM USERS 
+		WHERE USER_ID = #{user_id} AND USER_PWD = #{user_pwd}
+	</select>
+	
+	<!-- 태용 -->
+	<select id="chkIdOrEmail" parameterType="map" resultType="string">
+		<if test="user_id != null">
+			select user_id from users where user_id = #{user_id}
+		</if>
+		<if test="user_email != null">
+			select user_email from users where user_email = #{user_email}
+		</if>
+	</select>
 </mapper>

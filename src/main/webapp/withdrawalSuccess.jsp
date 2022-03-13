@@ -8,9 +8,8 @@
 </head>
 <body>
 	<script>
-		alert("정상적으로 탈퇴 처리가 완료 되었습니다.")
+		alert("정상적으로 탈퇴 처리가 완료 되었습니다.");
 		
-		<%-- <%response.sendRedirect("mainMenu.jsp"); %> --%>
 	 	location.href="login.jsp";
 	 </script>
 </body>

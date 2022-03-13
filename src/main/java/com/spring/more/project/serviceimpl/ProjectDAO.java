@@ -9,7 +9,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.spring.more.project.service.GoodsVO;
 import com.spring.more.project.service.ProjectVO;
+import com.spring.more.project.service.WishListVO;
+import com.spring.more.users.service.UsersVO;
 
 @Repository
 public class ProjectDAO {
@@ -56,13 +59,109 @@ public class ProjectDAO {
 		return mybatis.insert("project.insertProject", vo);
 	}
 
-	public int updateProject(ProjectVO vo) {
-		System.out.println(vo);
-		return mybatis.update("project.updateProject", vo);
-	}
-
 	public int deleteProject(ProjectVO vo) {
 		return mybatis.update("project.deleteProject", vo);
 	}
+	
+	public void insertFunding(ProjectVO vo) {
+		
+		mybatis.insert("more.insertFunding", vo);
+	}
+
+	public ProjectVO getOneOfLists(ProjectVO vo) {
+		return mybatis.selectOne("more.selectOne", vo);
+	}
+
+	public void updateProject(ProjectVO vo) {
+		mybatis.update("more.updateFunding", vo);
+	}
+
+	public List<ProjectVO> getListAll() {
+		return mybatis.selectList("more.selectList");
+	}
+	
+	public List<ProjectVO> paging (Map<String, String> map) {
+		return mybatis.selectList("more.paging", map);
+	}
+
+	public List<ProjectVO> getOneList(ProjectVO vo) {
+		return mybatis.selectList("more.selectOneList", vo);
+	}
+
+	public int getTotalPage(String total) {
+		return mybatis.selectOne("more.totalPage", total);
+	}
+
+	public List<GoodsVO> getGoodsList(String pro_no) {
+		return mybatis.selectList("more.getGoodsList", pro_no);
+	}
+
+	public void updateGoods(GoodsVO gVO) {
+		mybatis.update("more.updateGoods",gVO);
+	}
+
+	public void insertGoods(GoodsVO gVO) {
+		mybatis.insert("more.insertGoods",gVO);		
+	}
+	
+	// 은해누나
+	public ProjectVO getOneProject(ProjectVO vo) {
+		return mybatis.selectOne("project.getOneProject", vo);
+	}
+	
+	public List<GoodsVO> getProGoodsList(ProjectVO vo) {
+		return mybatis.selectList("project.getProGoodsList", vo);
+	}
+	
+	// 투자자구하기
+	public String getInvestorNumber(ProjectVO vo) {
+		return mybatis.selectOne("project.getInvestorNumber", vo);
+	}
+
+	// 투자금액 구하기
+	public String getInvestmentAmount(ProjectVO vo) {
+		return mybatis.selectOne("project.getInvestmentAmount", vo);
+	}
+
+	// 좋아요
+	public String getWishList(ProjectVO vo) {
+		return mybatis.selectOne("project.getWishList", vo);
+	}
+
+	// 회사정보 추가
+	public List<UsersVO> getCompanyInformation(ProjectVO vo) {
+		return mybatis.selectList("project.getCompanyInformation", vo);
+	}
+
+	// 서포터 정보
+	public List<ProjectVO> getSupporterList(ProjectVO vo) {
+		return mybatis.selectList("project.getSupporterList", vo);
+	}
+	
+
+	public void updateCloseProject(ProjectVO vo) {
+		mybatis.update("more.updateCloseProject", vo);
+	}
+	
+	// 좋아요 등록
+		public void insertWishList(WishListVO wvo) {
+			//System.out.println(" DAO > insertWishList() 좋아요 등록"+ wvo.toString());
+			mybatis.insert("payment.insertWishList", wvo);
+		}
+		
+		// 좋아요 취소
+		public void deleteWishList(WishListVO wvo) {
+			//System.out.println(" DAO > deleteWishList() 좋아요 삭제"+ wvo.toString());
+			mybatis.delete("payment.deleteWishList", wvo);
+		}
+		// 좋아요 체크
+		public WishListVO getOneWishList(WishListVO wvo) {
+			return mybatis.selectOne("payment.getOneWishList",wvo);
+		}
+
+		public List<ProjectVO> fundingCateItemList(Map<String, String> map) {
+			return mybatis.selectList("project.fundingCateItemList",map);
+		}
+	
 
 }

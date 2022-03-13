@@ -11,6 +11,38 @@
 <meta charset="UTF-8">
 <title>아이디 찾기</title>
 <script src=https://code.jquery.com/jquery-3.6.0.min.js></script>
+
+<style>
+	.text_input
+	{
+		border: none;
+		border-bottom: 2px #dcdcdc solid;
+	}
+	.d_btn {
+	    display: inline-block;
+		padding: 0.5em 0.5em;
+		margin: 0.4em 0.15em;
+		border: 1px solid #ccc;
+		border-color: #dbdbdb #d2d2d2 #b2b2b2 #d2d2d3;
+		cursor: pointer;
+		color: #464646;
+		border-radius: 0.2em;
+		vertical-align: middle;
+		font-size: 16px;
+		line-height: 1.25em;
+		background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#f2f2f2));
+	}
+	#findIdForm
+	{
+		position: relative;
+		left: 60px; top: 60px;
+	}
+	h1
+	{
+		position: relative;
+		left: 60px; top: 60px;
+	}
+</style>
 <script>	
 	function findId_btn() {
 		var nameExp = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // 이름 유효성 검사
@@ -72,16 +104,17 @@
 					<button class="findPassword" id="mpw" onclick="location.href=findPassword.jsp">비밀번호찾기</button>
 				</p> -->
 				<p>
-				<input type="text" id="mname" name="mname" placeholder="이름 입력">
+				<input type="text" id="mname" name="mname" placeholder="이름 입력" class="text_input">
 				</p>
 				<p>
-				<input type="text" id="mphone" name="mphone" onkeyup="inputPhoneNumber(this);" maxlength="13"  placeholder="전화번호 '-' 없이 입력">
+				<input type="text" id="mphone" name="mphone" onkeyup="inputPhoneNumber(this);" maxlength="13"  placeholder="전화번호 '-' 없이 입력" class="text_input">
 				<!-- <input type="button" name="본인인증">인증요청 -->
 				</p>
 				<p>
-				<input type="button" value="아이디찾기" onclick="findId_btn()">
-				<input type="button" value="취소" onclick="window.close()">
+				<input type="button" value="아이디찾기" onclick="findId_btn()" class="d_btn">
+				<input type="button" value="취소" onclick="window.close()" class="d_btn">
 				</p>
+				<img src="images/logo4.png" style="width: 60px; height: 50px">
 			</form>
 		</div>
 	</div>

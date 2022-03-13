@@ -1,7 +1,6 @@
 package com.spring.more.orders.service;
 
 public class OrdersVO {
-
 	private String order_no;
 	private String pro_no;
 	private String user_no;

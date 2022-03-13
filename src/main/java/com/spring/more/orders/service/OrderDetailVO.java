@@ -5,7 +5,6 @@ public class OrderDetailVO {
 	private String goods_no;
 	private String order_no;
 	private String delivery_no;
-	
 	private String order_ea;
 	private String order_status;
 	

@@ -1,6 +1,7 @@
 package com.spring.more.users.serviceimpl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,6 +42,23 @@ public class UsersServiceImpl implements UsersService {
 	@Override
 	public UsersVO checkIdPassword(String user_id, String user_pwd) {
 		return usersDAO.checkIdPassword(user_id, user_pwd);
+	}
+	
+	// 은해누나
+	@Override
+	public UsersVO getOneUsers(UsersVO vo) {
+		return usersDAO.getUsers(vo);
+	}
+
+	@Override
+	public List<UsersVO> getUsersList() {
+		return null;
+	}
+	
+	// 태용
+	@Override
+	public String chk_idOrEmail(Map<String, String> map) {
+		return usersDAO.chk_idOrEmail(map);
 	}
 
 }

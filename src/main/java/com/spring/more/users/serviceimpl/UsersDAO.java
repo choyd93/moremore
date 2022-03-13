@@ -55,5 +55,17 @@ public class UsersDAO {
 		map.put("user_pwd", user_pwd);
 		return mybatis.selectOne("users.checkIdPassword", map);
 	}
+	
+	// 은해누나
+	public UsersVO getUsers(UsersVO vo) {
+		System.out.println(">> myBatis로 getUsers() 실행");
+		return mybatis.selectOne("UsersDAO.getUsers", vo);
+		
+	}
+	
+	// 태용 -- 이메일체크
+	public String chk_idOrEmail(Map<String, String> map) {
+		return mybatis.selectOne("users.chkIdOrEmail", map);
+	}
 
 }

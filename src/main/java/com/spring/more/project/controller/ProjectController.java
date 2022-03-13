@@ -1,21 +1,18 @@
 package com.spring.more.project.controller;
 
+import java.util.HashMap;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
-import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
 
 import com.spring.more.project.service.ProjectService;
 import com.spring.more.project.service.ProjectVO;
@@ -49,6 +46,7 @@ public class ProjectController {
 	public List<ProjectVO> hashTagItemList(ProjectVO vo, Model model) {
 		List<ProjectVO> projectList = projectService.hashTagItemList();
 		model.addAttribute("projectList", projectList);
+		System.out.println(projectList.get(0).getPro_no());
 		return projectList;
 	}
 	
@@ -84,6 +82,8 @@ public class ProjectController {
 //		System.out.println("projectList : " + projectList);
 
 		model.addAttribute("keyword", vo.getPro_stitle());
+		//추가함- 태용 통합도중
+		model.addAttribute("pro_no", vo.getPro_no());
 
 		return "fundingSearch.jsp";
 	}
@@ -97,52 +97,28 @@ public class ProjectController {
 		System.out.println("keyword : " + keyword);
 		String pro_stitle = keyword;
 		System.out.println("pro_stitle : " + pro_stitle);
-
 		List<ProjectVO> projectList = projectService.searchItemList(pro_stitle);
 		System.out.println("projectList : " + projectList);
-
 		model.addAttribute("projectList", projectList);
 //		System.out.println("projectList : " + projectList);
 
 		return projectList;
 	}
 	
-	
-	
-//	@RequestMapping(value = "/signup.do", method = RequestMethod.POST)
-//	public String signup(ProjectVO vo, Model model) {
-//		projectService.insertProject(vo);
-//		model.addAttribute("loginUsers", vo);
-//		return "signupSuccess.jsp";
-//		//return "login.jsp";
-//	}
-//	
-//	@RequestMapping(value = "/signup.do", method = RequestMethod.GET)
-//	public String signupView() {
-//		return "signup.jsp";
-//	}
-//	
-//	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
-//	public String loginView() {
-//		return "login.jsp";
-//	}
-//	
-//	
-//	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
-//	public String logout(SessionStatus status, HttpSession session) {
-//		status.setComplete();
-//		session.invalidate();
-//        
-//        return "login.jsp";        
-//    }
-//	
-//	@RequestMapping(value = "/updateUsers.do", method = RequestMethod.POST)
-//	public String updateUsers(ProjectVO vo, Model model) {
-//		projectService.updateProject(vo);
-//		model.addAttribute("loginUsers", vo);
-//		return "updateUserSuccess.jsp";
-//	}
-//	
+	// 펀딩 카테고리 리스트 
+		@RequestMapping(value = "/fundingCateItemList.do", method = RequestMethod.GET)
+		@ResponseBody
+		public List<ProjectVO> fundingCateItemList(@RequestParam(value = "pro_cateno") String pro_cateno, ProjectVO vo, Model model) {
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("pro_cateno", pro_cateno);
+			System.out.println("pro_cateno : " + pro_cateno);
+			System.out.println("map : " + map);
+			
+			List<ProjectVO> projectList = projectService.fundingCateItemList(map);
+			model.addAttribute("projectList", projectList);
+			return projectList;
+		}
+
 
 	
 }

@@ -25,6 +25,7 @@ public class UsersController {
 	public String signup(UsersVO vo, Model model) {
 		usersService.insertUsers(vo);
 		model.addAttribute("loginUsers", vo);
+		System.out.println("UsersVO 확인 : " + vo);
 		return "signupSuccess.jsp";
 		//return "login.jsp";
 	}

@@ -3,7 +3,6 @@ package com.spring.more.orders.service;
 public class PaymentVO {
 	private String payment_no;
 	private String order_no;
-	
 	private String payment_price;
 	private String payment_regdate;
 	private String payment_bankname;

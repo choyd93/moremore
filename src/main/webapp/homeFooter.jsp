@@ -10,7 +10,7 @@
           </ul>
         </div>
         <div class="footerArea">
-         <img src="./image/logo.png"  style="display:inline; width : 150px;" />
+        <img src="resources/images/logo1.png" style="display:inline; width : 150px; margin-left: 200px;" />
           <div class="footerRight">
             <ul class=footerList>
               <li><h4>모아모아</h4></li> 

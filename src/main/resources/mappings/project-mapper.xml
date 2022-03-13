@@ -4,63 +4,150 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="project">
 
-	<!-- 부등호를 태그로 인식해서 발생하는 에러를 CDATA로 처리   -->
-	<select id="bestItemList" parameterType="project" resultType="project">
+	<!-- 영동 -->
+	<!-- 부등호를 태그로 인식해서 발생하는 에러를 CDATA로 처리 -->
+	<select id="bestItemList" parameterType="project"
+		resultType="project">
 		<![CDATA[
-		SELECT * FROM PROJECT WHERE PRO_CATENO = '4' AND ROWNUM <= 4
+	SELECT * FROM 
+	(SELECT ROWNUM as rnum, x.* FROM 
+			(SELECT p.PRO_NO, p.PRO_STITLE, p.PRO_GPRICE, p.PRO_THUMBNAIL_PATH, p.PRO_IMG_PATH, TO_CHAR(TO_DATE(PRO_CLOSE_DT,'YYYY-MM-DD') - TO_DATE(PRO_START_DT,'YYYY-MM-DD')) AS PRO_CLOSE_DT, p.PRO_HASHTAG, sum(p2.PAYMENT_PRICE) AS pro_status
+			FROM PROJECT p, ORDERS o, PAYMENT p2 
+			WHERE p.PRO_NO = o.PRO_NO 
+			AND o.ORDER_NO = p2.ORDER_NO 
+			AND p.PRO_CATENO = '4'
+			GROUP BY p.PRO_NO, p.PRO_STITLE, p.PRO_GPRICE, p.PRO_THUMBNAIL_PATH, p.PRO_IMG_PATH, TO_CHAR(TO_DATE(PRO_CLOSE_DT,'YYYY-MM-DD') - TO_DATE(PRO_START_DT,'YYYY-MM-DD')), p.PRO_HASHTAG
+			ORDER BY p.PRO_NO) x)
+	WHERE rnum BETWEEN 1 AND 4
 		]]>
 	</select>
-	
-	<select id="recommendItemList" parameterType="project" resultType="project">
+
+	<select id="recommendItemList" parameterType="project"
+		resultType="project">
 		<![CDATA[
-		SELECT * FROM PROJECT WHERE PRO_CATENO = '2' AND ROWNUM <= 4
+	SELECT * FROM 
+	(SELECT ROWNUM as rnum, x.* FROM 
+			(SELECT p.PRO_NO, p.PRO_STITLE, p.PRO_GPRICE, p.PRO_THUMBNAIL_PATH, p.PRO_IMG_PATH, TO_CHAR(TO_DATE(PRO_CLOSE_DT,'YYYY-MM-DD') - TO_DATE(PRO_START_DT,'YYYY-MM-DD')) AS PRO_CLOSE_DT, p.PRO_HASHTAG, sum(p2.PAYMENT_PRICE) AS pro_status
+			FROM PROJECT p, ORDERS o, PAYMENT p2 
+			WHERE p.PRO_NO = o.PRO_NO 
+			AND o.ORDER_NO = p2.ORDER_NO 
+			AND p.PRO_CATENO = '2'
+			GROUP BY p.PRO_NO, p.PRO_STITLE, p.PRO_GPRICE, p.PRO_THUMBNAIL_PATH, p.PRO_IMG_PATH, TO_CHAR(TO_DATE(PRO_CLOSE_DT,'YYYY-MM-DD') - TO_DATE(PRO_START_DT,'YYYY-MM-DD')), p.PRO_HASHTAG
+			ORDER BY p.PRO_NO) x)
+	WHERE rnum BETWEEN 1 AND 4
 		]]>
 	</select>
-	
-	<select id="hashTagItemList" parameterType="project" resultType="project">
+
+	<select id="hashTagItemList" parameterType="project"
+		resultType="project">
 		<![CDATA[
-		SELECT * FROM PROJECT WHERE PRO_CATENO = '5' AND ROWNUM <= 4
+	SELECT * FROM 
+	(SELECT ROWNUM as rnum, x.* FROM 
+			(SELECT p.PRO_NO, p.PRO_STITLE, p.PRO_GPRICE, p.PRO_THUMBNAIL_PATH, p.PRO_IMG_PATH, TO_CHAR(TO_DATE(PRO_CLOSE_DT,'YYYY-MM-DD') - TO_DATE(PRO_START_DT,'YYYY-MM-DD')) AS PRO_CLOSE_DT, p.PRO_HASHTAG, sum(p2.PAYMENT_PRICE) AS pro_status
+			FROM PROJECT p, ORDERS o, PAYMENT p2 
+			WHERE p.PRO_NO = o.PRO_NO 
+			AND o.ORDER_NO = p2.ORDER_NO 
+			AND p.PRO_CATENO = '5'
+			GROUP BY p.PRO_NO, p.PRO_STITLE, p.PRO_GPRICE, p.PRO_THUMBNAIL_PATH, p.PRO_IMG_PATH, TO_CHAR(TO_DATE(PRO_CLOSE_DT,'YYYY-MM-DD') - TO_DATE(PRO_START_DT,'YYYY-MM-DD')), p.PRO_HASHTAG
+			ORDER BY p.PRO_NO) x)
+	WHERE rnum BETWEEN 1 AND 4
 		]]>
 	</select>
-	
+
 	<select id="searchItemList" parameterType="string" resultType="project">
 		<![CDATA[
-		SELECT * FROM PROJECT
-		WHERE PRO_STITLE LIKE '%'||#{pro_stitle}||'%' AND ROWNUM <= 4
+		SELECT * FROM 
+	(SELECT ROWNUM as rnum, x.* FROM 
+			(SELECT p.PRO_NO, p.PRO_STITLE, p.PRO_GPRICE, p.PRO_THUMBNAIL_PATH, p.PRO_IMG_PATH, TO_CHAR(TO_DATE(PRO_CLOSE_DT,'YYYY-MM-DD') - TO_DATE(PRO_START_DT,'YYYY-MM-DD')) AS PRO_CLOSE_DT, p.PRO_HASHTAG, sum(p2.PAYMENT_PRICE) AS pro_status
+			FROM PROJECT p, ORDERS o, PAYMENT p2 
+			WHERE p.PRO_NO = o.PRO_NO 
+			AND o.ORDER_NO = p2.ORDER_NO 
+			GROUP BY p.PRO_NO, p.PRO_STITLE, p.PRO_GPRICE, p.PRO_THUMBNAIL_PATH, p.PRO_IMG_PATH, TO_CHAR(TO_DATE(PRO_CLOSE_DT,'YYYY-MM-DD') - TO_DATE(PRO_START_DT,'YYYY-MM-DD')), p.PRO_HASHTAG
+			ORDER BY p.PRO_NO) x)
+	WHERE PRO_STITLE LIKE '%'||#{pro_stitle}||'%'
 		]]>
 	</select>
-	
-	<select id="selectProject" parameterType="project" resultType="project">
-		SELECT * FROM USERS ORDER BY USER_NO
+
+	<!-- 은해누나 -->
+	<!-- 펀딩 프로젝트 한개 가져오기 -->
+	<select id="getOneProject" parameterType="project"
+		resultType="project">
+		SELECT P.*, PC.PRO_CATENAME, C.COMPANY_NAME
+		FROM PROJECT P INNER JOIN COMPANY C
+		ON P.USER_NO = C.USER_NO
+		INNER JOIN PROJECT_CATEGORY PC
+		ON P.PRO_CATENO = PC.PRO_CATENO
+		WHERE P.PRO_NO = #{pro_no}
+	</select>
+
+	<!-- 해당 프로젝트릐 옵션 가져오기 -->
+	<select id="getProGoodsList" parameterType="project"
+		resultType="goods">
+		SELECT *
+		FROM(SELECT ROWNUM GOODS_RNUM, A.*
+		FROM (SELECT G.*
+		FROM PROJECT P INNER JOIN GOODS G
+		ON P.PRO_NO = G.PRO_NO
+		WHERE P.PRO_NO = #{pro_no})A
+		ORDER BY GOODS_PRICE)
+	</select>
+
+	<!-- 굿즈 한개 가져오기 -->
+	<select id="getOneGoods" parameterType="goods"
+		resultType="goods">
+		SELECT *
+		FROM(SELECT ROWNUM GOODS_RNUM, A.*
+		FROM (SELECT * FROM GOODS
+		WHERE PRO_NO = #{pro_no})A)
+		WHERE GOODS_RNUM = #{goods_rnum}
+	</select>
+
+	<!-- 투자자 구하기 -->
+	<select id="getInvestorNumber" parameterType="project"
+		resultType="string">
+		SELECT COUNT(*) FROM ORDERS O INNER JOIN ORDER_DETAIL D ON O.ORDER_NO =
+		D.ORDER_NO WHERE PRO_NO = #{pro_no} ORDER BY O.ORDER_NO
+	</select>
+	<!-- 진행중인 펀딩투자금액 구하기 -->
+	<select id="getInvestmentAmount" parameterType="project"
+		resultType="string">
+		SELECT SUM(PAYMENT_PRICE) FROM ORDERS O INNER JOIN ORDER_DETAIL D ON
+		O.ORDER_NO = D.ORDER_NO INNER JOIN PAYMENT P ON O.ORDER_NO =
+		P.ORDER_NO WHERE PRO_NO = #{pro_no} ORDER BY O.ORDER_NO
+	</select>
+	<!-- 좋아요 갯수 -->
+	<select id="getWishList" parameterType="project"
+		resultType="string">
+		SELECT COUNT(*) FROM WISHLIST WHERE PRO_NO = #{pro_no}
+	</select>
+	<!-- 회사 정보 -->
+	<select id="getCompanyInformation" parameterType="project"
+		resultType="users">
+		SELECT C.COMPANY_NAME, U.USER_NAME, U.USER_PHONE, U.USER_EMAIL FROM COMPANY
+		C INNER JOIN PROJECT P ON C.COMPANY_NO = P.COMPANY_NO INNER JOIN USERS
+		U ON P.USER_NO = U.USER_NO WHERE P.PRO_NO = #{pro_no}
+	</select>
+	<!-- 서포터 정보 -->
+	<select id="getSupporterList" parameterType="project"
+		resultType="project">
+		SELECT U.USER_NAME, O.PRIVATE_NAME, P.PAYMENT_PRICE FROM PROJECT P INNER
+		JOIN ORDERS O ON P.PRO_NO = O.PRO_NO INNER JOIN USERS U ON O.USER_NO =
+		U.USER_NO INNER JOIN PAYMENT P ON P.ORDER_NO = O.ORDER_NO WHERE
+		P.PRO_NO = #{pro_no}
 	</select>
 	
-	<select id="selectOneProject" parameterType="string" resultType="project">
-		SELECT * FROM USERS WHERE USER_ID = #{id}
+	<!-- 카테고리별 펀딩 리스트  -->
+	<select id="fundingCateItemList" parameterType="map" resultType="project">
+	SELECT * FROM 
+	(SELECT ROWNUM as rnum, x.* FROM 
+			(SELECT p.PRO_NO, p.PRO_STITLE, p.PRO_GPRICE, p.PRO_THUMBNAIL_PATH, p.PRO_IMG_PATH, TO_CHAR(TO_DATE(PRO_CLOSE_DT,'YYYY-MM-DD') - TO_DATE(PRO_START_DT,'YYYY-MM-DD')) AS PRO_CLOSE_DT, p.PRO_HASHTAG, sum(p2.PAYMENT_PRICE) AS pro_status
+			FROM PROJECT p, ORDERS o, PAYMENT p2 
+			WHERE p.PRO_NO = o.PRO_NO 
+			AND o.ORDER_NO = p2.ORDER_NO 
+			AND p.PRO_CATENO = #{pro_cateno}
+			GROUP BY p.PRO_NO, p.PRO_STITLE, p.PRO_GPRICE, p.PRO_THUMBNAIL_PATH, p.PRO_IMG_PATH, TO_CHAR(TO_DATE(PRO_CLOSE_DT,'YYYY-MM-DD') - TO_DATE(PRO_START_DT,'YYYY-MM-DD')), p.PRO_HASHTAG
+			ORDER BY p.PRO_NO) x)
+	WHERE rnum BETWEEN 1 AND 20
 	</select>
-	
-	<select id="checkIdPassword" parameterType="map" resultType="project">
-		SELECT * FROM USERS WHERE USER_ID = #{user_id} AND USER_PWD = #{user_pwd} AND USER_TYPE = '회원'
-	</select>
-	
-	<insert id="insertProject" parameterType="project">
-		INSERT INTO USERS (USER_NO, USER_NAME, USER_ID, USER_PWD, USER_PHONE, USER_EMAIL, USER_GENDER, USER_JOINDATE, USER_TYPE, USER_ADDRESS, USER_ADDRESS_NUMBER)
-		VALUES ((SELECT NVL(MAX(USER_NO),0)+1 FROM USERS), #{user_name}, #{user_id}, #{user_pwd}, #{user_phone}, #{user_email}, #{user_gender}, sysdate, '회원', #{user_address}, #{user_address_number})
-	</insert>
-	
-	<update id="updateProject" parameterType="project">
-		UPDATE USERS SET 
-			USER_PWD = #{user_pwd}, 
-			USER_PHONE = #{user_phone}, 
-			USER_EMAIL = #{user_email},
-			USER_ADDRESS = #{user_address}, 
-			USER_ADDRESS_NUMBER = #{user_address_number}
-        WHERE USER_ID = #{user_id}
-	</update>
-	
-	<delete id="deleteProject" parameterType="project">
-		UPDATE USERS SET 
-			USER_TYPE = '탈퇴 회원',
-			USER_WITHDRAWAL_REASON = #{user_withdrawal_reason}
-		WHERE USER_ID = #{user_id}
-	</delete>
+
 </mapper>

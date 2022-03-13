@@ -13,10 +13,10 @@
 			<div class="headerMenuArea">
 				<ul class="headerMenu">
 					<li class="headerMenuItem middleSize" id="headerMenuFunding"><a href="fundingProjectList.jsp">펀딩하기</a></li>
-					<li class="headerMenuItem middleSize" id="headerMenuBuy"><a href=#>구매하기</a></li>
-					<li class="headerMenuItem middleSize" id="headerMenuGuide"><a href=# class="headerMenuHidden">이용가이드</a></li>
+					<!-- <li class="headerMenuItem middleSize" id="headerMenuBuy"><a href=#>구매하기</a></li> -->
+					<li class="headerMenuItem middleSize" id="headerMenuGuide"><a href="notice.do" class="headerMenuHidden">이용가이드</a></li>
 					<li class="headerMenuItem moreItem" id="headerMenuMoreItem"><a href=# class="headerMenuHidden">더보기</a></li>
-					<li class="headerMenuItem middleSize" id="headerMenuProjectBtnList"><a href=# id="headerMenuProjectBtn" class="purple">프로젝트 신청</a></li>
+					<li class="headerMenuItem middleSize" id="headerMenuProjectBtnList"><a href="fromHomeToAdmin.jsp" id="headerMenuProjectBtn" class="purple">프로젝트 신청</a></li>
 				</ul>
 			</div>
 			<div class="headerUtil">

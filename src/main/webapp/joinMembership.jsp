@@ -14,7 +14,7 @@
       <!-- <img src="/images/Naver_Logotype.svg.png" width="200px" /> -->
       <h1 class="loginLogo"><span style="cursor:pointer;" onclick="javascript:location.href='home.jsp'"><img src="resources/images/logo2.png"></span></h1>
     </div>
-    <form action="signup.do" method="post">
+    <form action="signup.do" method="post" name="frm">
       <div id="joinContainerWrapper">
         <div class="joinContainer">
           <div class="row_group">
@@ -27,7 +27,8 @@
                   id="id"
                   name="user_id"
                   maxlength="20"
-                  placeholder="아이디 입력" />
+                  placeholder="아이디 입력"
+                  onblur="chk_id_email(this)" />
                   <span class="step_url">@###.com</span>
                 </span>
               <span class="error"></span>
@@ -138,7 +139,8 @@
               <h3>
                 <label class="join" for="email">본인 확인 이메일</label>
               </h3>
-                <input class="ps_box" type="email" placeholder="선택입력" id="email" name="user_email" />
+                <input class="ps_box" type="email" placeholder="선택입력" id="email" name="user_email" onblur="chk_id_email(this)"/>
+                <span class="error"></span>
             </div>
             <!-- <div id="mobDiv">
               <h3><label for="phone">휴대전화</label></h3>
@@ -165,7 +167,7 @@
               <span class="error"></span>
             </div> -->
             <div class="btn_area">
-              <button type="submit" id="btnJoin" class="btn_type btn_primary">
+              <button id="btnJoin" class="btn_type btn_primary">
                 <span>가입하기</span>
               </button>
             </div>
@@ -194,13 +196,13 @@
     password.addEventListener("input", checkPassword);
     validatePassword.addEventListener("input", checkValidatePassword);
     name.addEventListener("input", checkName);
-    year.addEventListener("input", checkBirth);
+    /* year.addEventListener("input", checkBirth);
     month.addEventListener("input", checkMonth);
-    date.addEventListener("input", checkDate);
+    date.addEventListener("input", checkDate); */
     gender.addEventListener("input", checkGender);
     email.addEventListener("input", checkEmail);
-    phone.addEventListener("input", checkPhone);
-    validatePhone.addEventListener("input", checkValidatePhone);
+    /* phone.addEventListener("input", checkPhone);
+    validatePhone.addEventListener("input", checkValidatePhone); */
 
     // 함수 작성
     function checkId() {
@@ -287,7 +289,7 @@
         error[6].innerHTML = "";
       } else if (!emailPattern.test(email.value)) {
         error[6].innerHTML = "이메일 주소를 다시 확인해주세요.";
-      }
+      } 
     }
     function checkPhone() {
       // const phonePattern = /\d{2,3}-\d{3,4}-\d{4}/g;
@@ -337,6 +339,120 @@
 	            document.getElementById("userDetailAddress").focus();
 	        }
 	    }).open();
+	}
+	
+	// 태용
+	// 아이디와 이메일 중복 확인
+	chk_id_email = (e) => {
+		let info = {};
+		console.log(e);
+		if (e === document.getElementById("id")) {
+			info.user_id = frm.user_id.value;	
+		} else {
+			info.user_email = frm.user_email.value; 
+		}
+		
+		console.log(info.user_id);
+		console.log(info.user_email);
+		$.ajax("chkIdAndEmail.do",{
+			type: "post",
+			data: JSON.stringify(info),
+			dataType: "JSON",
+			contentType: "application/json",
+			success: (data) => {
+				console.log(data.id);
+				if (data.empty === "empty"){
+					if (e === document.getElementById("id")) {
+						error[0].innerHTML = "아이디를 입려해주세요!";
+						error[0].style.color = "red";
+					} else {
+						error[7].innerHTML = "이메일을 입려해주세요!";
+						error[7].style.color = "red";
+					}
+				} else if (data.email === "emptyEmail") {
+					error[7].innerHTML = "좋은 이메일이네요!";
+					error[7].style.color = "blue";
+					document.getElementById("btnJoin").disabled = false;
+				} else if (data.id === "emptyId") {
+					error[0].innerHTML = "좋은 아이디네요!";
+			        error[0].style.color = "blue";
+					document.getElementById("btnJoin").disabled = false;
+				}  else if (data.id === "notEmptyId"){
+					error[0].innerHTML = "이미 존재하는 아이디입니다!";
+			        error[0].style.color = "red";
+					frm.user_id.value = "";
+					document.getElementById("btnJoin").disabled = true;
+				} else if (data.email === "notEmptyEmail") {
+					error[7].innerHTML = "사용할 수 없는 이메일입니다!";
+					error[7].style.color = "red";
+					frm.user_email.value = "";
+					document.getElementById("btnJoin").disabled = true;
+				} 
+			},
+			error: (data, error, request, status,) => {
+				alert("관리자에게 문의하세요. (02-2222-2222)\n" + data.empty + "\n" + error + "\n" + request + "\n" + status);
+				
+			}
+		});
+	}
+	// 서브밋 빈칸 없이 쓰도록 처리
+	window.onload = () => {
+		document.getElementById("btnJoin").onclick = chk_before_submit;
+	}
+	chk_before_submit = () => {
+		if (frm.user_id.value.trim() === "") {
+			alert("아이디를 입력해주세요.");
+			frm.user_id.focus();
+			frm.user_id.value = "";
+			return false;
+		} else if (document.getElementById("password").value.trim() == "" ) {
+			alert("비밀번호를 입력해주세요.");
+			document.getElementById("password").focus();
+			document.getElementById("password").value = "";
+			return false;
+		} else if (frm.user_pwd.value.trim() === "" ) {
+			alert("비밀번호를 입력해주세요.");
+			frm.user_pwd.focus();
+			frm.user_pwd.value = "";
+			return false;
+		} else if (frm.user_name.value.trim() === "") {
+			alert("이름을 입력해주세요.");
+			frm.user_name.focus();
+			frm.user_name.value = "";
+			return false;
+		} else if (frm.user_birthday.value.trim() === "") {
+			alert("생일을 입력해주세요.");
+			frm.user_birthday.focus();
+			frm.user_birthday.value = "";
+			return false;
+		} else if (frm.user_phone.value.trim() === "") {
+			alert("핸드폰 번호를 입력해주세요.");
+			frm.user_phone.focus();
+			frm.user_phone.value = "";
+			return false;
+		} else if (frm.user_gender.selected === false) {
+			alert("성별을 선택해주세요.");
+			frm.user_gender.value = "";
+			frm.user_gender.focus();
+			return false;
+		} else if (frm.user_address_number.value.trim() === "") {
+			alert("우편번호를 입력해주세요.");
+			frm.user_address_number.focus();
+			frm.user_address_number.value = "";
+			return false;
+		} else if (frm.user_address.value.trim() === "") {
+			alert("주소를 입력해주세요.");
+			frm.user_address.focus();
+			frm.user_address.value = "";
+			return false;
+		} else if (frm.user_email.value.trim() === "") {
+			alert("이메일을 입력해주세요.");
+			frm.user_email.value = "";
+			frm.user_email.focus();
+			return false;
+		}
+		frm.action="signup.do";
+		frm.submit();
 	}
 	</script>
   </body>
